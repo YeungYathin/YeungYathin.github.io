@@ -103,7 +103,6 @@ section {
 /* About */
 .teaser-img {
     width: 40%;
-    display: flex;
     float: right;
     margin-left: 1rem;
 }
