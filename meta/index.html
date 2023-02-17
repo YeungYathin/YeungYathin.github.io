@@ -41,24 +41,33 @@
 	<main>
 		<section id="abstract">
 			<h2>Abstract</h2>
-			<p>
-                <img class="teaser-img" src="Assets/teaser.png" alt="" />
-                Grasping moving objects is a challenging task that combines multiple submodules such as object pose predictor, 
-                arm motion planner, etc. Each submodule operates under its own set of meta-parameters. For example, 
-                how far the pose predictor should look into the future (i.e., <span style="color: #ff0000; font-style: italic;">look-ahead time</span>) 
-                and the maximum amount of time the motion planner can spend planning a motion (i.e., <span style="color: blue; font-style: italic;">time budget</span>). 
-                Many previous works assign fixed values to these parameters either heuristically or through grid search; 
-                however, at different moments <i>within</i> a single episode of dynamic grasping, 
-                the optimal values should vary depending on the current scene. 
-                In this work, we learn a meta-controller through reinforcement learning to control the look-ahead time and time budget dynamically. 
-                Our extensive experiments show that the meta-controller improves the grasping success rate (up to 12% in the most cluttered environment) 
-                and reduces grasping time, compared to the strongest baseline. 
-                Our meta-controller learns to reason about the reachable workspace and maintain the predicted pose within the reachable region. 
-                In addition, it assigns a small but sufficient time budget for the motion planner. 
-                Our method can handle different target objects, trajectories, and obstacles. 
-                Despite being trained only with 3-6 randomly generated cuboidal obstacles, 
-                our meta-controller generalizes well to 7-9 obstacles and more realistic out-of-domain household setups with unseen obstacle shapes.
-            </p>
+            <div>
+                <div class="teaser-img" >
+                    <img src="Assets/teaser.png" alt="" />
+                </div>
+                <div>
+                    <p>
+                        Grasping moving objects is a challenging task that combines multiple submodules such as object pose predictor, 
+                        arm motion planner, etc. Each submodule operates under its own set of meta-parameters. For example, 
+                        how far the pose predictor should look into the future (i.e., <span style="color: #ff0000; font-style: italic;">look-ahead time</span>) 
+                        and the maximum amount of time the motion planner can spend planning a motion (i.e., <span style="color: blue; font-style: italic;">time budget</span>). 
+                        Many previous works assign fixed values to these parameters either heuristically or through grid search; 
+                        however, at different moments <i>within</i> a single episode of dynamic grasping, 
+                        the optimal values should vary depending on the current scene. 
+                        In this work, we learn a meta-controller through reinforcement learning to control the look-ahead time and time budget dynamically. 
+                        Our extensive experiments show that the meta-controller improves the grasping success rate (up to 12% in the most cluttered environment) 
+                        and reduces grasping time, compared to the strongest baseline. 
+                        Our meta-controller learns to reason about the reachable workspace and maintain the predicted pose within the reachable region. 
+                        In addition, it assigns a small but sufficient time budget for the motion planner. 
+                        Our method can handle different target objects, trajectories, and obstacles. 
+                        Despite being trained only with 3-6 randomly generated cuboidal obstacles, 
+                        our meta-controller generalizes well to 7-9 obstacles and more realistic out-of-domain household setups with unseen obstacle shapes.
+                    </p>
+                </div>   
+                <!-- This is required to makse sure other contents below will not go up -->
+                <div style="clear: both;"></div>
+            </div>   
+			
         <hr/>
 		</section>
 

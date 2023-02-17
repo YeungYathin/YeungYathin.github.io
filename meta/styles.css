@@ -1,4 +1,10 @@
 /* Global Styles */
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
 body {
 	font-family: sans-serif;
 	font-size: 16px;
@@ -102,14 +108,15 @@ section {
 
 /* About */
 .teaser-img {
-    width: 40%;
     float: right;
     margin-left: 1rem;
+    text-align: center;
 }
 
 /* Team */
 .team-row{
     display:flex; 
+    justify-content: center;
     /* padding-bottom: 20px; */
 }
 
