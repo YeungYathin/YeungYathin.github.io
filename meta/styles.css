@@ -113,6 +113,10 @@ section {
     text-align: center;
 }
 
+.teaser-img img{
+    width: 450px;
+}
+
 /* Team */
 .team-row{
     display:flex; 
