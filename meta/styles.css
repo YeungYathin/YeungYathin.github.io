@@ -41,7 +41,7 @@ a {
     border-radius: 0.3rem;
     transition: color 0.2s, background-color 0.2s, border-color 0.2s;
     font-size:1.5rem;
-  }
+}
   
 .btn:hover {
 color: rgba(93, 88, 88, 0.8);
@@ -99,12 +99,10 @@ nav a:hover {
 }
 
 main {
-	margin: 2rem;
+	margin: 2rem auto;
+    width: 1000px;
 }
 
-section {
-	margin: 0 10%;
-}
 
 /* About */
 .teaser-img {
@@ -131,8 +129,8 @@ section {
 }
 
 .image-fit {
-	display: block;
-	margin: 0 0 2em 0;
+    display: block;
+	margin: 0 0 0 0;
 	width: 100%;
 	-moz-transition: opacity 0.1s ease-in-out;
 	-webkit-transition: opacity 0.1s ease-in-out;
@@ -145,6 +143,7 @@ section {
 }
 
 .image-fit img {
+    display: block;
 	width: 100%;
 }
 
