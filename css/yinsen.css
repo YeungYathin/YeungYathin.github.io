@@ -348,7 +348,7 @@ body {
   
   /* Publications */
   .publications ul {
-    padding-left: 1em;
+    padding-left: 0.0em;
     list-style: none;
   }
   
@@ -360,8 +360,8 @@ body {
   }
   
   .publication-img-col {
-    width: 30%;
-    padding-right: 1em;
+    width: 40%;
+    padding-right: 1.5em;
   }
   
   .publication-info-col {
