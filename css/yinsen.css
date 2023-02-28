@@ -499,7 +499,7 @@ body {
   }
   
   /* Image fix: https://www.w3schools.com/css/css3_object-fit.asp */
-  .lifestyle-container img{
+  .lifestyle-img{
     /* max-width:500px;
     max-height: 300px; */
     border: none;
@@ -526,12 +526,13 @@ body {
 
   .caption_below{
     text-align: center;
-    padding-top: 1.5em;
+    padding-top: 0.5em;
   }
 
   .caption_below_lifestyle{
     text-align: center;
-    padding-top: 2.5em;
+    font-size: 13;
+    font-style: italic;
   }
   
   .highlight {
@@ -583,11 +584,17 @@ body {
     }
   
     .caption {
-      padding-top: 0.5em;
+      padding-bottom: 0.5em;
     }
 
     .caption_below{
-      padding-top: 2.5em;
+      padding-top: 0.5em;
+      padding-bottom: 0.7em;
+    }
+
+    .caption_below_lifestyle{
+      padding-top: -0.7em;
+      padding-bottom: 1em;
     }
 
     .lifestyle-columns {
@@ -597,10 +604,6 @@ body {
 
     .lifestyle-col{
       width: 70%;
-    }
-
-    .caption_below_lifestyle{
-      padding-top: 15%;
     }
 
     .sticky img {
