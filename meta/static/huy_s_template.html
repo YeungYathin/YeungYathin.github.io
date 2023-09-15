@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Scaling Up and Distilling Down: Language-Guided Robot Skill Acquisition">
+  <meta name="keywords" content="Robotics, Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scaling Up and Distilling Down: Language-Guided Robot Skill Acquisition</title>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BFTMZG8SSJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BFTMZG8SSJ');
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Scaling Up and Distilling Down: <br>Language-Guided Robot
+            Skill
+            Acquisition</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.cs.columbia.edu/~huy/">Huy Ha</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.peteflorence.com/">Pete Florence</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://shurans.github.io/">Shuran Song</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Columbia University,</span>
+            <span class="author-block"><sup>2</sup>Google DeepMind</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            Conference on Robot Learning 2023
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2307.14535.pdf"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="./static/images/pdf.svg" alt="PDF" />
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2307.14535" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="./static/images/arxiv.svg" alt="ArXiv" />
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="static/videos/scalingup.mp4" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="./static/images/youtube.svg" alt="Youtube" />
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/columbia-ai-robotics/scalingup"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#visualization-qa">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/teaser-crf30.mp4" type="video/mp4">
+        </video>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section is-medium">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-justified is-four-fifths">
+        <h2 class="subtitle">
+          <span class="dnerf">Scaling Up and Distilling Down</span> is a framework for language-guided skill
+          learning.
+          Give it a task description, and it will automatically generate rich, diverse robot trajectories, complete
+          with
+          success
+          label and dense language labels.
+        </h2>
+        <br>
+        <h2 class="subtitle">
+          <strong>The best part?</strong> It uses <i>no</i> expert demonstrations, manual reward supervision, and
+          no
+          manual language
+          annotation.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2">Language-guided Robot Skill Learning</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our framework efficiently scales up
+            data generation of
+            language-labeled robot data and effectively distills this data down into a
+            robust multi-task
+            language-conditioned visuomotor policy.
+          </p>
+          <img src="./static/images/teaser.svg" alt="Teaser" />
+          <p>
+            For <span class="dnerf">scaling up</span> data generation, we use a language model to guide
+            high-level planning and
+            sampling-based robot planners to generate <strong>rich and diverse</strong> manipulation
+            trajectories (b).
+            To robustify this data-collection process, the language model also infers a code-snippet for the success
+            condition of
+            each task, simultaneously enabling the data-collection process to detect failure and retry and
+            automatically label of trajectories with success/failure (c).
+
+          </p>
+          <p>
+            For <span class="dnerf"> distilling down</span> into a policy for real-world deployment (d), we extend the
+            diffusion policy
+            single-task behavior-cloning approach to multi-task settings with
+            language conditioning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+
+    <section class="section is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+
+            <h2 class="title is-2">Robustness In, Robustness Out</h2>
+            <div class="content has-text-justified">
+              <p>
+                We use a language model to predict each task's success condition code snippet, which allows the robot to
+                retry failed tasks.
+              </p>
+            </div>
+
+            <div class="content has-text-justified">
+              <p>
+                The result is demonstrations of robust behavior, which teach the policy to <strong>recover after failed
+                  attempts</strong>, resulting in more successful trajectories when given more time.
+              </p>
+            </div>
+          </div>
+          <div class="column is-half">
+            <img src="./static/images/efficiency_v3.svg" alt="tasks" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small ">
+      <div class="box pt-6 pb-6">
+        <div class="container is-max-desktop">
+          <!-- Abstract. -->
+          <div class="columns is-centered">
+            <div class="column is-four-fifths is-centered">
+              <h2 class="title is-3  has-text-centered">
+                Language-guided, not language-constrained
+              </h2>
+              <div class="block">
+                <p>
+                  Language-model planners' abilities to perform rich, 6 DoF manipulation alone is language-constrained.
+                  Many things robotic systems need to understand, like geometry and articulation structure, are
+                  challenging to describe in natural language. That is where sampling-based planners come in.
+                </p>
+              </div>
+              <div class="block is-max-widescreen is-hidden-mobile">
+                <table class="table" style="margin-left: auto;margin-right: auto;">
+                  <thead>
+                    <tr>
+                      <th>Approach</th>
+                      <th>6 DoF Manipulation</th>
+                      <th>Common-sense</th>
+                      <th>No Sim State</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Sampling-based Planners</th>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-xmark" style="color:red;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-xmark" style="color:red;"></i></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr>
+                      <th>LLM Planners</th>
+                      <td class="has-text-centered"><i class="fas fa-xmark" style="color:red;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-xmark" style="color:red;"></i></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr>
+                      <th>Our Data Generation</th>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-xmark" style="color:red;"></i></td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr class="is-selected">
+                      <th>Our Policy</th>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                      <td class="has-text-centered"><i class="fas fa-check" style="color:green;"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="section is-small">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">A New Multi-Task Benchmark</h2>
+            <div class="content has-text-justified">
+              <p>
+                We introduce a new multi-task benchmark to test ⌛ long-horizon
+                behavior, 🧠 common-sense reasoning, 🔨 tool-use, and <i class="fa-solid fa-cubes"
+                  style="color:chocolate"></i> intuitive
+                physics.
+                Running our language-guided skill learning framework in the benchmark gives an
+                <strong>infinite</strong> amount
+                of language-labelled robot experience.
+              </p>
+
+            </div>
+            <nav class="level">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Domains</p>
+                  <p class="title">5</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Tasks</p>
+                  <p class="title">18</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Assets</p>
+                  <p class="title">30</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Training Data</p>
+                  <p class="title"><i class="fa-solid fa-infinity"></i></p>
+                </div>
+              </div>
+            </nav>
+
+            <img src="./static/images/task_panel.svg" alt="tasks" />
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+
+            <h2 class="title is-2">Run it in Real</h2>
+            <h2 class="subtitle is-3">with <strong>zero-finetuning</strong>
+            </h2>
+            <div class="content has-text-justified">
+              <p>
+                Using domain randomization, our diffusion policy can be deployed on a real robot with 🪶 no fine-tuning.
+              </p>
+            </div>
+          </div>
+          <div class="column is-half">
+            <div class="columns is-gapless">
+              <div class="column is-half is-gapless">
+                <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+                  <source src="./static/videos/monster.mp4" type="video/mp4">
+                </video>
+                <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+                  <source src="./static/videos/rubiks.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="column is-half is-gapless">
+                <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+                  <source src="./static/videos/controller.mp4" type="video/mp4">
+                </video>
+                <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+                  <source src="./static/videos/mustard.mp4" type="video/mp4">
+                </video>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="box pt-6 pb-6">
+        <div class="columns is-max-desktop is-centered ">
+          <div class="column is-four-fifths is-centered">
+            <h2 class="title is-3 has-text-centered">So You Think Your Policy Can Scale? 📈</h2>
+            <div class="content">
+              Our framework is a step towards putting robotics on the same scaling trend as large language
+              models while not compromising on rich low-level manipulation and control.
+              As LLM keeps getting better, how can our robot policies keep up?
+
+            </div>
+            <div class="content">
+              See how well your policy scales with infinite language-labeled, diverse robot trajectories.
+            </div>
+            <div class="has-text-centered">
+              <a href="https://github.com/columbia-ai-robotics/scalingup">
+                <button class="button is-primary">Download Code</button>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title is-3">Citation</h2>
+      <pre><code>@inproceedings{ha2023scalingup,
+    title={Scaling Up and Distilling Down: Language-Guided Robot Skill Acquisition}, 
+    author={Huy Ha and Pete Florence and Shuran Song},
+    year={2023},
+    booktitle={Proceedings of the 2023 Conference on Robot Learning},
+}</code></pre>
+      <p>
+        If you have any questions, please contact <a href="https://www.cs.columbia.edu/~huy/">Huy Ha</a>.
+      </p>
+    </section>
+  </div>
+</section>
+
+
+<section class="section is-small">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered ">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 has-text-centered">Questions & Answers</h2>
+
+
+
+        <div class="block">
+          <h3 class="title is-6">
+            What can't this framework do?
+          </h3>
+          <p>
+            The framework uses privileged simulation state information for the data generation
+            process.
+            This is why the language model can infer good reward functions using simulation contact and joint
+            information.
+            While we have successfully demonstrated its application in a transport task in the real world using a domain
+            randomized policy, there remains room for improvement in terms of perfecting Sim2Real transferability. This
+            represents an exciting challenge to tackle, and is currently our main focus for enhancement.
+          </p>
+        </div>
+
+        <div id="improvement-qa" class="block">
+          <h3 class="title is-6">How can the distilled policy's performance be better than its data collection policy?
+          </h3>
+          <p>
+            At data collection time, the language model also predicts a success condition used to label its experience
+            with success or failure. The distilled policy filters the replay buffer using this automatically generated
+            success label, learning from only successful experiences.
+          </p>
+        </div>
+
+        <div class="block">
+          <h3 class="title is-6">
+            How can language models do that?
+          </h3>
+          <p>
+            Tasks in our benchmark are contact-rich and require fine-grained, 6 DoF behavior to solve. Instead of
+            getting language models to output actions for such tasks directly, we use them for high-level planning over
+            API calls to sampling-based planners, such as rapidly-exploring random trees and grasp samplers.
+          </p>
+          <br>
+          <p>
+            The result is a data generation approach that combines the best of both worlds: Low-level geometry reasoning
+            and diverse trajectories from sampling-based planners, and the flexibility of a language model.
+          </p>
+        </div>
+
+
+        <div id="visualization-qa" class="block">
+          <h3 class="title is-6">What are these colorful lines?</h3>
+          <div class="columns">
+            <div class="column is-half">
+              <video id="teaser" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/catapult-crf30.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half">
+              <p>
+                Our policy builds on <a href="https://diffusion-policy.cs.columbia.edu/">Diffusion Policy</a>, a
+                behavior cloning approach for learning from diverse, multi-modal demonstrations. Each action inference
+                is sampled from a pseudo-random diffusion process over action sequences. The action sequence samples are
+                visualized here as lines, where blue is the start of the action sequence while red is the end.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            You can generate them yourself too! Check out our <a
+              href="https://github.com/columbia-ai-robotics/scalingup">codebase</a> for visualization
+            <a href="https://github.com/columbia-ai-robotics/scalingup/blob/master/docs/visualization.md">visualization
+              instructions</a>.
+          </p>
+
+        </div>
+
+
+
+        <div class="block">
+          <h3 class="title is-6">
+            Isn't this just <a href="https://say-can.github.io/">SayCan</a> or <a
+              href="https://code-as-policies.github.io/">Code-as-Policy</a>?
+          </h3>
+          <div class="content">
+            <p>
+              These prior works use language models as zero-shot planners and policies, which limit their inference-time
+              performance by the language model's planning robustness. This also means they do not improve with more
+              experience.
+            </p>
+          </div>
+          <div class="content">
+            <p>
+              In contrast, our approach uses language models as zero-shot data collection policies, supplied with an API
+              to sampling-based robot planners. The generated data is then distilled into a robust, multi-task
+              visuomotor policy, which performs better than its data collection policy.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template modified from <a href="https://nerfies.github.io/">NeRFies</a>.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow and modify the <a
+              href="https://github.com/nerfies/nerfies.github.io">source
+              code</a> of this website as long as
+            you link back to the <a href="https://nerfies.github.io/">NeRFies</a> page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
