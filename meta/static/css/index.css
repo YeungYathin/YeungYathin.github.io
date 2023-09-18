@@ -91,7 +91,7 @@ body {
   
   /* Video */
   .presentation-video{
-    margin: 1rem;
+    margin: 0rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -163,3 +163,41 @@ body {
   #interpolation-image-wrapper img {
     border-radius: 5px;
   }
+
+  /* Demos */
+.demo-video {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-bottom: 1rem;
+  padding-top: 0.5cm;
+}
+
+.video-col {
+  width: 49%;
+}
+
+.caption {
+  text-align: center;
+  color: #159957;
+  font-weight: bold;
+  width: 100%;
+  font-size: 1.5rem;
+  padding-top: 0.5cm;
+}
+
+.smallcaption{
+  text-align: center;
+}
+
+.nopadding_p{
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}

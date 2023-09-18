@@ -58,6 +58,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution,</span>
             <span class="author-block"><sup>1</sup>Columbia University,</span>
             <span class="author-block"><sup>2</sup>University of Pennsylvania</span>
           </div>
@@ -103,27 +104,53 @@
           </div>
         </div>
       </div>
-      <a href="#">
-        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-          <source src="Assets/MC_rb_51.mp4" type="video/mp4">
-        </video> -->
-        <div class="presentation-video" id="full-video">
-            <iframe
-            width="800"
-            height="467"
-            src="https://www.youtube.com/embed/CwHq77wFQqI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            ></iframe>
+      
+      <div class="columns is-vcentered">
+        <div class="columns is-gapless">
+          <div class="column is-half is-gapless">
+            <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+              <source src="Assets/MC_rb_51.mp4" type="video/mp4">
+            </video>
+            <video class="m-0 p-0" autoplay muted loop playsinline height="100%" 
+                   style="position:relative; top: -0.16cm">
+              <source src="Assets/MC_mrb_16.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column is-half is-gapless">
+            <video class="m-0 p-0" autoplay muted loop playsinline height="100%">
+              <source src="Assets/household_38.mp4" type="video/mp4">
+            </video>
+            <video class="m-0 p-0" autoplay muted loop playsinline height="100%"
+                   style="position:relative; top: -0.16cm">
+              <source src="Assets/clutterred_16.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-      </a>
+      </div>
+
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-justified is-four-fifths">
+            <h2 class="subtitle">
+              We've developed a meta-controller using reinforcement learning to 
+              dynamically optimize key parameters like 
+              <span style="color: #ff0000; font-style: italic;">look-ahead time</span>
+              and <span style="color: blue; font-style: italic;">time budget</span> for robot dynamic grasping task. 
+              Our experiments demonstrate remarkable results, 
+              including up to a 28% improvement in grasping success rate and reduced grasping time. 
+            </h2>
+            <br>
+            <h2 class="subtitle">
+              <strong>What sets our approach apart?</strong> Our meta-controller excels at generalizing to various scenarios, including unseen obstacles and arrangements.
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section is-medium">
+<!-- <section class="section is-medium" style="position:relative; top: -5cm">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column has-text-justified is-four-fifths">
@@ -142,7 +169,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -153,15 +180,16 @@
         <div class="columns is-vcentered">
           <div class="column is-half">
 
-            <h2 class="title is-2">Delay-accuracy</h2>
-            <h2 class="subtitle is-3"><strong>Trade-off</strong></h2>
+            <h2 class="title is-2">Meta-controller</h2>
+            <h2 class="subtitle is-3"><strong>for Dynamic Grasping</strong></h2>
 
             <div class="content has-text-justified">
               <p>
-                Grasping moving objects is a challenging task that combines multiple submodules such as object pose predictor, arm motion planner, 
-                etc. Each submodule operates under its own set of meta-parameters. 
-                For example, how far the pose predictor should look into the future (i.e., look-ahead time) 
-                and the maximum amount of time the motion planner can spend planning a motion (i.e., time budget). 
+                Grasping moving objects is a challenging task that combines multiple submodules such as object pose predictor, arm motion planner, etc. 
+                Each submodule operates under its own set of meta-parameters. 
+                For example, how far the pose predictor should look into the future (i.e., look-ahead time) and the maximum amount of time the motion planner can spend planning a motion (i.e., time budget). 
+                Many previous works assign fixed values to these parameters either heuristically or through grid search; 
+                however, at different moments within a single episode of dynamic grasping, the optimal values should vary depending on the current scene. 
               </p>
             </div>
           </div>
@@ -270,8 +298,8 @@
     <section class="section is-small">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3">A New Dynamic Grasping Training Environment</h2>
+          <div class="column">
+            <h2 class="title is-2">A New Dynamic Grasping Training Environment</h2>
             <div class="content has-text-justified">
               <p>
                 We introduce a new multi-setups/trajectories/objects training environment to test ⌛ meta-controller
@@ -325,7 +353,139 @@
       </div>
     </section>
 
+
     <section class="section is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-justified">
+          <div class="column">
+            <h2 class="title is-2 has-text-centered">Demo Highlights</h2>
+            <div class="content has-text-justified">
+              <p>
+                Trained with 3-6 obstacles, our meta-controller can successfully generalize to 7-9 blocks, 
+                different obstacles shapes, and more realistic out-of-domain household setups with 🪶 no fine-tuning.
+              </p>
+            </div>
+            <div class="caption">3~6 Random Blocks</div>
+            <p class="nopadding_p">
+                In this setup, the obstacle poses are
+                randomly sampled from a cuboidal volume that incorporates
+                both the trajectory and robot arm. These random blocks are
+                guaranteed not to block the conveyor trajectory, by setting up
+                a protected area with a height of 30cm and a width of 20cm
+                surrounding the trajectory. The number of obstacles is between
+                3 and 6. The x, y, and z dimensions of these rectangular
+                obstacles are all uniformly sampled from [5cm, 15cm]. In
+                this setup, the conveyor trajectory is sampled from all 4
+                trajectories.
+            </p>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_rb_28.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_rb_51.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">7~9 Random Blocks</div>
+            <p class="nopadding_p">
+                This setup is the same as 3-
+                6 Random Blocks except that we increase the number of
+                obstacles to 7-9. This is used only for evaluation.
+            </p>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_mrb_16.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_mrb_74.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">Household Setup</div>
+            <p class="nopadding_p">
+                In this setup, there are three shelves
+                (one top shelf and two side shelves) between the robot arm
+                and the object trajectory. For each episode, the conveyor
+                motion is sampled from linear, sinusoidal, and rectangular
+                trajectories, without circular trajectories. The top shelf height
+                is randomized between 40 - 60cm, and the side shelf locations
+                are randomized so that an empty middle space of length 45
+                - 85cm is available. It is designed to have a reachable area
+                in the middle of the trajectory while blocked at the start and
+                end. Even though this setup is not as highly cluttered as 7-
+                9 Random Blocks, it can evaluate the generalization ability
+                of our meta-controller to completely new obstacle shapes
+                and locations not seen during training. This is used only for
+                evaluation.
+            </p>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/household_38.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/household_90.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">Cluttered Household Setup</div>
+            <p class="nopadding_p">
+                In this setup, the conveyor
+                moves following a circular trajectory. There are 5 cylinder
+                obstacles surrounding the trajectory and a top circular shelf
+                obstacle covering the trajectory. The top circular shelf consists
+                of 15 identical convex trapezoidal parts. Positions of these
+                cylinder obstacles are randomly sampled. This is a harder and
+                more cluttered setup compared to the Household Setup. It is
+                motivated by operating in extremely cluttered household and
+                warehouse environments. This is used only for evaluation.
+            </p>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/clutterred_16.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/clutterred_88.mp4"
+                    autoplay muted loop playsinline
+                    ></video>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="section is-small">
       <div class="container is-max-desktop">
         <div class="columns is-vcentered">
           <div class="column is-half">
@@ -361,7 +521,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 
     <section class="section">
@@ -424,6 +584,27 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section is-small">
+      <div class="container is-max-desktop has-text-justified">
+        <div class="column">
+          <h2 class="title is-2">Supplementary Video</h2>
+
+            <div class="presentation-video" id="full-video">
+                <iframe
+                width="100%"
+                height="510"
+                src="https://www.youtube.com/embed/CwHq77wFQqI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            </div>
         </div>
       </div>
     </section>
