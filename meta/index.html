@@ -131,17 +131,25 @@
         <div class="container is-max-desktop" style="padding-top: 2cm">
           <div class="columns is-centered">
             <div class="column has-text-justified is-four-fifths">
-              <h2 class="subtitle">
-                <!-- We've developed a meta-controller using reinforcement learning to dynamically optimize key parameters like
-                <span style="color: #ff0000; font-style: italic">look-ahead time</span>
-                and <span style="color: blue; font-style: italic">time budget</span> for robot dynamic grasping task. Our experiments demonstrate remarkable results, including up to a 28% improvement
-                in grasping success rate and reduced grasping time. -->
+              <div class="columns is-vcentered">
+                <div class="column is-half">
+                  <h2 class="subtitle">
+                    <strong>What is the problem?</strong> Grasping moving objects is a challenging task that requires multiple submodules such as object pose predictor, arm motion planner, etc. Each
+                    submodule operates under its own set of meta-parameters. For example, how far the pose predictor should look into the future (i.e.,
+                    <span style="color: #ff0000; font-style: italic">look-ahead time</span>) and the maximum amount of time the motion planner can spend planning a motion (i.e.,
+                    <span style="color: blue; font-style: italic">time budget</span>). Many previous works assign fixed values to these parameters; however, at different moments
+                    <span style="font-style: italic">within</span> a single episode of dynamic grasping, the optimal values should vary depending on the current scene.
+                  </h2>
+                </div>
+                <div class="column is-half"><img src="Assets/teaser.png"" alt="tasks" /></div>
+              </div>
+              <!-- <h2 class="subtitle">
                 <strong>What is the problem?</strong> Grasping moving objects is a challenging task that requires multiple submodules such as object pose predictor, arm motion planner, etc. Each
                 submodule operates under its own set of meta-parameters. For example, how far the pose predictor should look into the future (i.e.,
                 <span style="color: #ff0000; font-style: italic">look-ahead time</span>) and the maximum amount of time the motion planner can spend planning a motion (i.e.,
                 <span style="color: blue; font-style: italic">time budget</span>). Many previous works assign fixed values to these parameters; however, at different moments
                 <span style="font-style: italic">within</span> a single episode of dynamic grasping, the optimal values should vary depending on the current scene.
-              </h2>
+              </h2> -->
               <br />
               <h2 class="subtitle">
                 <strong>What is our approach?</strong> In this work, we propose a dynamic grasping pipeline with a meta-controller that controls the look-ahead time and time budget dynamically. We
