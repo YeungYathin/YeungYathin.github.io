@@ -112,6 +112,8 @@ body {
     max-width: 80%;
   }
 
+
+  
   .social {
       /*float: left;*/
       padding-bottom: 2em;
@@ -120,6 +122,12 @@ body {
       display: inline-block;
       overflow: visible;
   }
+
+  .social a {
+    margin-right: 10px; /* 每个图标右边空10px */
+  }
+
+
 
   .sidebar {
       /*float: left;*/
