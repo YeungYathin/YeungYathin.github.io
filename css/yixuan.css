@@ -54,6 +54,13 @@ body {
     margin: 0;
   }
 
+  .life {
+    font-weight: 1000;
+    color: #094358;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
   .slogan{
     font-weight: 700; 
     color: #d21717; 
