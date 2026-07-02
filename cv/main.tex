@@ -39,13 +39,13 @@
 \setlength{\parindent}{0pt}
 \linespread{0.99}
 \setlength{\parindent}{0pt}
-\linespread{0.97}
+\linespread{0.95}
 
 % 1. SECTION HEADERS
 % Clean, consistent spacing before and after sections
 \titleformat{\section}{
-  \vspace{-9pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+  \vspace{-11pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
 % 2. SUBHEADINGS (School / Job Title)
 \newcommand{\resumeSubheading}[4]{
@@ -122,10 +122,11 @@
 \begin{itemize}[leftmargin=0in, label={}]
 
     \resumeSubheading
-    {Instruction Tuning Foundational Model for Trajectory Modeling \& Reasoning \hspace{-40mm}}{\href{https://www.kamaleswaran.com/team}{\textit{\textbf{Advised by Prof. Rishi Kamaleswaran}}}}
+    {Clin-JEPA: Joint-Embedding Predictive Pretraining on EHR Patient Trajectories \hspace{-40mm}}{\href{https://www.kamaleswaran.com/team}{\textit{\textbf{Advised by Prof. Rishi Kamaleswaran}}}}
     {\textup{\textbf{Duke University -- Kamaleswaran Lab}}}{08/2025 -- Present}
     \begin{itemize}
-      \item {\footnotesize Developed reasoning-enhanced, instruction-tuned Large Language Models to model acute illness trajectories and automate clinical planning from Electronic Health Record (EHR) data. Built a framework that transforms longitudinal patient data into real-time actionable insights for clinical decision support.}
+      \item {\footnotesize Proposed \textit{Clin-JEPA}, extending joint-embedding predictive (JEPA) world modeling to EHR patient trajectories, with a multi-phase co-training curriculum that makes LLM-based clinical pretraining stable at scale.}
+      \item {\footnotesize A single pretrained backbone yields clinically meaningful patient representations and reliable long-horizon trajectory rollouts, transferring to diverse risk-prediction tasks without per-task fine-tuning or feature engineering.}
     \end{itemize}
 
     \resumeSubheading
@@ -157,13 +158,15 @@
 %-----------PUBLICATIONS-----------
 \vspace{-3mm}
 \section{\textbf{Publications}}
-\begin{itemize}[leftmargin=3ex, itemsep=3pt]
+\begin{itemize}[leftmargin=3ex, itemsep=0pt]
 
-  \item {\small Yuhan Cheng*, Xuecheng Chen*, \textbf{Yixuan Yang}, Haoyang Wang, Jingao Xu, Chaopeng Hong, Susu Xu, Xiaoping Zhang, Yunhao Liu, and Xinlei Chen. \textbf{SniffySquad: Patchiness-Aware Gas Source Localization with Multi-Robot Collaboration}. \textit{\textbf{ACM Transactions on Sensor Networks, Jan 2026}}. DOI: 10.1145/3786599.}
+  \item {\footnotesize \textbf{Yixuan Yang}, Mehak Arora, Ryan Zhang, Baraa Abed, Junseob Kim, Tilendra Choudhary, Md Hassanuzzaman, Kevin Zhu, Ayman Ali, Chengkun Yang, Alasdair Edward Gent, Victor Moas, and Rishikesan Kamaleswaran. \textbf{Clin-JEPA: A Multi-Phase Co-Training Framework for Joint-Embedding Predictive Pretraining on EHR Patient Trajectories}. \textit{\textbf{arXiv preprint arXiv:2605.10840}}, May 2026.}
 
-  \item {\small Yuhan Cheng*, Xuecheng Chen*, \textbf{Yixuan Yang}, Haoyang Wang, Yuxuan Liu, and Xinlei Chen. \textbf{Poster: Olfactory Sensing in Turbulent Airflow via Collaborative Robots}. In \textit{\textbf{Proceedings of the 25th International Workshop on Mobile Computing Systems and Applications (ACM HotMobile)}}, 2024.}
+  \item {\footnotesize Yuhan Cheng*, Xuecheng Chen*, \textbf{Yixuan Yang}, Haoyang Wang, Jingao Xu, Chaopeng Hong, Susu Xu, Xiao-Ping Zhang, Yunhao Liu, and Xinlei Chen. \textbf{SniffySquad: Patchiness-Aware Gas Source Localization with Multi-Robot Collaboration}. \textit{\textbf{ACM Transactions on Sensor Networks, Jan 2026}}. DOI: 10.1145/3786599.}
 
-  \item {\small Shuaixiang Zhang, \textbf{Yixuan Yang}, Hao Tong, and Xin Yao. \textbf{Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems}. In \textit{\textbf{IEEE Congress on Evolutionary Computation (CEC)}}, 2024.}
+  \item {\footnotesize Yuhan Cheng*, Xuecheng Chen*, \textbf{Yixuan Yang}, Haoyang Wang, Yuxuan Liu, and Xinlei Chen. \textbf{Poster: Olfactory Sensing in Turbulent Airflow via Collaborative Robots}. In \textit{\textbf{Proceedings of the 25th International Workshop on Mobile Computing Systems and Applications (ACM HotMobile)}}, 2024.}
+
+  \item {\footnotesize Shuaixiang Zhang, \textbf{Yixuan Yang}, Hao Tong, and Xin Yao. \textbf{Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems}. In \textit{\textbf{IEEE Congress on Evolutionary Computation (CEC)}}, 2024.}
 
 \end{itemize}
 
@@ -172,12 +175,13 @@
 \section{\textbf{Academic Service \& Technical Skills}}
 % Tighter spacing for this section only
 \begin{itemize}[leftmargin=0.05in, label={}, nosep]
-    \small
-  \item \textbf{Government Service}: Student Researcher in \textbf{North Carolina AI Leadership Council (Tech, Data, \& Infra team)} - hosted by the \textbf{NC Office of AI and Policy} to support government agencies in AI-related decision-making.
+    \footnotesize
+  \item \textbf{Government Service}: Invited by the \textbf{North Carolina AI Leadership Council} as a Student Researcher on its \textbf{Tech, Data, \& Infra team} (01/2026 -- 06/2026); work acknowledged in the official \href{https://it.nc.gov/documents/statewide-ai-strategic-roadmap/open}{\textbf{NC Statewide AI Strategic Roadmap}} (\href{https://www.commerce.nc.gov/news/press-releases/2026/07/01/governor-stein-announces-ai-strategic-roadmap-protect-and-better-serve-north-carolinians-prepare}{announced by Gov.\ Josh Stein, Jul 2026}).
   \item \textbf{Teaching Assistant}: DECISION 520Q/618: Data Science for Business, Duke Fuqua School of Business (08/2024 -- 10/2024).
   \item \textbf{Reviewer}: ACL Rolling Review (ARR, 2026); ICLR 2026 Workshop on Foundation Models for Science (FM4Science, 2026); IEEE International Conference on Healthcare Informatics (ICHI, 2026); IEEE Transactions on Circuits and Systems for Video Technology (TCSVT, 2026); IEEE Transactions on Multimedia (TMM, 2026); IEEE J-STSP (Intelligent Robotics SI, 2023).
-  \item \textbf{Programming}: Python, JavaScript, React, C/C++, Java, SQL, \LaTeX
-  \item \textbf{Frameworks \& Tools}: PyTorch, Hugging Face Ecosystem, CUDA, MIMIC-IV / EHR Databases, Nvidia Isaac Gym/Genesis, Git, Linux, Raspberry Pi, Arduino, Fusion 360, UWB Systems
+  \item \textbf{Languages}: Python, JavaScript/React, C/C++, Java, SQL, \LaTeX
+  \item \textbf{AI/ML Stack}: PyTorch, Hugging Face Ecosystem, CUDA, MIMIC-IV / EHR Databases, Nvidia Isaac Gym/Genesis
+  \item \textbf{Development}: Agentic AI coding (Claude Code, OpenAI Codex), Git, Linux; hardware prototyping (Raspberry Pi, Arduino, Fusion 360, UWB systems)
     % \item \textbf{Languages}: English, Cantonese, Chinese.
 \end{itemize}
 
