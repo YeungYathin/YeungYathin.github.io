@@ -2,3 +2,5 @@ others/
 .ipynb_checkpoints/
 __pycache__/
 .DS_Store
+# CV source lives in Overleaf; cv/ is a clone of that project (see CLAUDE.md)
+/cv/

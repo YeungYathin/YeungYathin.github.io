@@ -16,31 +16,58 @@ step for the site itself. The CV is the only artifact compiled before commit.
 |---|---|
 | `index.html` | Main homepage. Sections: `#biography`, `#highlights`, `#news`, `#publications` (heading: "Research Experiences"), `#projects`, `#courses`, `#reviewer`, `#yixuanlife`. |
 | `index-yinsen.html` | Alternate homepage variant. **Do not edit without asking the user.** |
-| `cv/main.tex` | LaTeX source of the CV — single file, `article` class, one-page layout. |
-| `cv/*.png` | Images referenced by `main.tex` (currently only `duke_university_wordmark_black.png` is used; `LOGO_0/1.png` are orphans). |
-| `cv/main.pdf` | Compiled CV — the build-output copy kept next to the source. |
-| `files/Yixuan_Yang_CV.pdf` | **Published CV** — linked from `index.html:120` and `index.html:189`. Must mirror `cv/main.pdf`. |
+| `cv/` | **Not tracked by this repo** — `.gitignore`d. It is a git clone of the Overleaf project that owns the CV source; a repo nested inside a repo. See "CV workflow". |
+| `cv/main.tex` | LaTeX source of the CV — single file, `article` class, one-page layout. Synced with Overleaf. |
+| `cv/duke_university_wordmark_black.png` | The only image `main.tex` references (`cv/main.tex:85`). |
+| `cv/main.pdf` | Local tectonic build output. Excluded via `cv/.git/info/exclude`, so it never reaches Overleaf. |
+| `files/Yixuan_Yang_CV.pdf` | **Published CV** — linked from `index.html:120` and `index.html:189`. The only CV artifact this repo tracks. Must mirror `cv/main.pdf`. |
 | `files/*.pdf` | Other downloadable documents (course reports, etc.). |
 | `images/`, `css/`, `js/` | Static assets for the homepage. |
 | `meta/` | Older versions and templates. **Do not edit without asking the user.** |
 
 ## CV workflow
 
-1. Edit `cv/main.tex`.
-2. Compile with **tectonic** (installed at `/opt/homebrew/bin/tectonic`):
+The CV source lives in an **Overleaf project**, not in this repo. `cv/` is a git
+clone of that project and is `.gitignore`d here. The only CV artifact this repo
+tracks is `files/Yixuan_Yang_CV.pdf`.
+
+- Overleaf project: <https://www.overleaf.com/project/6a8ee29d7baef092983f0948>
+- Git remote: `https://git@git.overleaf.com/6a8ee29d7baef092983f0948`, branch `main`
+- Auth: Overleaf Git token (`olp_…`) cached in the macOS keychain — no setup
+  needed per-session. Overleaf's Git integration is a premium feature, granted
+  through Duke's site licence (SSO login at overleaf.com/edu/duke).
+- **Overleaf's compiler must stay set to XeLaTeX**, matching tectonic (also
+  XeTeX-based). Under pdfLaTeX the tight one-page layout can reflow to two pages,
+  making the web preview disagree with the published PDF.
+
+### Editing the CV
+
+1. **Pull first, always** — the user may have edited on Overleaf since last sync:
+   ```bash
+   git -C cv pull
+   ```
+2. Edit `cv/main.tex`.
+3. Push, so the change appears in the Overleaf editor:
+   ```bash
+   git -C cv add -A && git -C cv commit -m "…" && git -C cv push
+   ```
+4. Compile and mirror to the published path:
    ```bash
    tectonic cv/main.tex
-   ```
-   This produces `cv/main.pdf`.
-3. Mirror the output to the published path so the homepage link picks it up:
-   ```bash
    cp cv/main.pdf files/Yixuan_Yang_CV.pdf
    ```
-4. Commit the `.tex` change and **both PDFs** in the same commit so source and
-   published copy stay in lockstep. Do not commit one without the other.
+5. Commit `files/Yixuan_Yang_CV.pdf` in the **outer** repo.
 
-**Do not** switch compilers (no `pdflatex`, `xelatex`, `latexmk`). Tectonic
-auto-fetches missing packages on first run.
+**Two repos, two commits.** `git status` in the outer repo never shows `cv/`
+changes — they are invisible to it. Skipping step 3 means the edit never reaches
+Overleaf; skipping steps 4–5 means the website still serves the old PDF. Verify
+page count stays at 1 after compiling: `pdfinfo cv/main.pdf | grep Pages`.
+
+**Do not** switch compilers (no `pdflatex`, `latexmk`). Tectonic auto-fetches
+missing packages on first run.
+
+**Git bridge limits:** single branch, no force push, no submodules, no Git LFS,
+symlinks get flattened. Never rewrite history in `cv/`.
 
 ## Homepage workflow
 
