@@ -86,7 +86,7 @@ Conventions:
   them if the user asks or the news is clearly celebratory.
 
 **Sections** — each top-level section is a `<div class="…" id="…">` with an
-`<h1>`. Section `id`s are sidebar anchor targets (sidebar at ~`index.html:130`).
+`<h1>`. Section `id`s are sidebar anchor targets (sidebar at ~`index.html:133`).
 If you add a section, also add a matching sidebar `<li>`.
 
 **Previewing** — open `index.html` directly in a browser. No dev server needed;
@@ -101,9 +101,9 @@ one, check whether the other needs updating in the same commit:
 | Fact | Homepage | CV |
 |---|---|---|
 | Advisor / lab / affiliation | Bio paragraph (~`index.html:215+`) | Education, Research Experiences (`cv/main.tex:91+`) |
-| Reviewer list | `#reviewer` section (~`index.html:1142`) | Academic Service line (`cv/main.tex:178`) |
-| Research projects (titles, dates, advisors) | `#publications` (~`index.html:593`), `#projects` (~`index.html:891`) | Research Experiences (`cv/main.tex:121+`) |
-| Teaching / TA roles | `#reviewer` section | Academic Service line (`cv/main.tex:177`) |
+| Reviewer list | `#reviewer` section (~`index.html:1147`) | Academic Service line (`cv/main.tex:181`) |
+| Research projects (titles, dates, advisors) | `#publications` (~`index.html:617`), `#projects` (~`index.html:923`) | Research Experiences (`cv/main.tex:121+`) |
+| Teaching / TA roles | `#reviewer` section | Academic Service line (`cv/main.tex:180`) |
 | Publications | (not currently listed on homepage) | Publications section (`cv/main.tex:159+`) |
 
 **News → CV rule**: when a news entry describes a durable milestone (passed
