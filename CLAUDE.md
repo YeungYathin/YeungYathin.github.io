@@ -15,7 +15,6 @@ step for the site itself. The CV is the only artifact compiled before commit.
 | Path | Purpose |
 |---|---|
 | `index.html` | Main homepage. Sections: `#biography`, `#highlights`, `#news`, `#publications` (heading: "Research Experiences"), `#projects`, `#courses`, `#reviewer`, `#yixuanlife`. |
-| `index-yinsen.html` | Alternate homepage variant. **Do not edit without asking the user.** |
 | `cv/` | **Not tracked by this repo** — `.gitignore`d. It is a git clone of the Overleaf project that owns the CV source; a repo nested inside a repo. See "CV workflow". |
 | `cv/main.tex` | LaTeX source of the CV — single file, `article` class, one-page layout. Synced with Overleaf. |
 | `cv/duke_university_wordmark_black.png` | The only image `main.tex` references (`cv/main.tex:85`). |
@@ -23,7 +22,6 @@ step for the site itself. The CV is the only artifact compiled before commit.
 | `files/Yixuan_Yang_CV.pdf` | **Published CV** — linked from `index.html:120` and `index.html:189`. The only CV artifact this repo tracks. Must mirror `cv/main.pdf`. |
 | `files/*.pdf` | Other downloadable documents (course reports, etc.). |
 | `images/`, `css/`, `js/` | Static assets for the homepage. |
-| `meta/` | Older versions and templates. **Do not edit without asking the user.** |
 
 ## CV workflow
 
@@ -130,6 +128,7 @@ entry.
   additive: one news item, one reviewer entry, one section edit.
 - Introduce a build system (npm, Makefile, CI, GitHub Actions) or swap LaTeX
   compilers.
-- Edit `meta/` or `index-yinsen.html`.
 - Delete images, PDFs, or content that looks unreferenced — confirm first; the
-  user may be planning to use it.
+  user may be planning to use it. Note that `index.html` keeps large blocks of
+  commented-out HTML referencing files that no longer exist; a reference inside
+  `<!-- -->` is not a live reference. Strip comments before auditing links.
