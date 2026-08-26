@@ -19,15 +19,15 @@ step for the site itself. The CV is the only artifact compiled before commit.
 | `cv/main.tex` | LaTeX source of the CV — single file, `article` class, one-page layout. Synced with Overleaf. |
 | `cv/duke_university_wordmark_black.png` | The only image `main.tex` references (`cv/main.tex:85`). |
 | `cv/main.pdf` | Local tectonic build output. Excluded via `cv/.git/info/exclude`, so it never reaches Overleaf. |
-| `files/Yixuan_Yang_CV.pdf` | **Published CV** — linked from `index.html:120` and `index.html:189`. The only CV artifact this repo tracks. Must mirror `cv/main.pdf`. |
-| `files/*.pdf` | Other downloadable documents (course reports, etc.). |
-| `images/`, `css/`, `js/` | Static assets for the homepage. |
+| `assets/` | Everything the homepage serves, split by kind: `docs/` (PDFs), `img/` (images), `video/` (mp4). All `index.html` references point here. |
+| `assets/docs/Yixuan_Yang_CV.pdf` | **Published CV** — linked from `index.html:120` and `index.html:189`. The only CV artifact this repo tracks. Must mirror `cv/main.pdf`. |
+| `css/`, `js/` | Stylesheet and scripts for the homepage. |
 
 ## CV workflow
 
 The CV source lives in an **Overleaf project**, not in this repo. `cv/` is a git
 clone of that project and is `.gitignore`d here. The only CV artifact this repo
-tracks is `files/Yixuan_Yang_CV.pdf`.
+tracks is `assets/docs/Yixuan_Yang_CV.pdf`.
 
 - Overleaf project: <https://www.overleaf.com/project/6a8ee29d7baef092983f0948>
 - Git remote: `https://git@git.overleaf.com/6a8ee29d7baef092983f0948`, branch `main`
@@ -52,9 +52,9 @@ tracks is `files/Yixuan_Yang_CV.pdf`.
 4. Compile and mirror to the published path:
    ```bash
    tectonic cv/main.tex
-   cp cv/main.pdf files/Yixuan_Yang_CV.pdf
+   cp cv/main.pdf assets/docs/Yixuan_Yang_CV.pdf
    ```
-5. Commit `files/Yixuan_Yang_CV.pdf` in the **outer** repo.
+5. Commit `assets/docs/Yixuan_Yang_CV.pdf` in the **outer** repo.
 
 **Two repos, two commits.** `git status` in the outer repo never shows `cv/`
 changes — they are invisible to it. Skipping step 3 means the edit never reaches
