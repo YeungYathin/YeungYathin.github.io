@@ -44,13 +44,16 @@
   --radius: 6px;
 
   /* Layout ---------------------------------------------------------------- */
-  --sidebar:       232px;
+  --sidebar:       248px;
   --gutter:        var(--s-8);
   /* `ch` measures the digit zero, which is far wider than the average letter:
      68ch of Inter renders about 88 characters of running text. 56ch lands at
      roughly 70, inside the comfortable 45-75 range. */
   --measure-prose: 56ch;
-  --page-max:      1040px;
+  /* The frame is wide; the prose track inside it is not. That split is the
+     whole point: a wide container lets news rows and research entries use the
+     screen, while running text stays at a readable measure. */
+  --page-max:      1240px;
 }
 
 /* Reset ---------------------------------------------------------------- */
@@ -124,9 +127,12 @@ h1, h2, h3 {
 .content > * + * { margin-top: 0; }
 
 /* Prose is capped independently of the column, so a wide element (a research
-   entry, a figure) can use the full track while text stays readable. */
-.prose { max-width: var(--measure-prose); }
-.prose p { margin: 0 0 var(--s-4); }
+   entry, a figure) can use the full track while text stays readable.
+
+   The cap goes on the paragraphs, not the section: a section-wide max-width
+   would shorten the heading rule too, and About Me would sit under a stub of a
+   line while News and Research Experiences got full-width ones. */
+.prose p { max-width: var(--measure-prose); margin: 0 0 var(--s-4); }
 
 /* Sidebar ---------------------------------------------------------------- */
 
@@ -313,8 +319,14 @@ h1, h2, h3 {
   font-size: var(--text-xs);
   color: var(--ink-muted);
 }
+.site-footer p { margin: 0; }
+.footer-updated { font-style: italic; margin-top: var(--s-1) !important; }
 
 /* Responsive ------------------------------------------------------------- */
+
+@media (min-width: 1600px) {
+  :root { --page-max: 1440px; --sidebar: 264px; }
+}
 
 @media (max-width: 860px) {
   .page { flex-direction: column; gap: var(--s-6); padding-top: var(--s-6); }
