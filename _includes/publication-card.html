@@ -13,15 +13,15 @@ or _data/projects.yml). Fields holding raw HTML are emitted unescaped on purpose
         muted
         playsinline
         preload="metadata"
-        src="{{ card.media.src }}"
+        src="{{ card.media.src | relative_url }}"
       ></video>
       {%- else %}
-      <img class="publication-img" src="{{ card.media.src }}" alt="{{ card.media.alt }}" />
+      <img class="publication-img" src="{{ card.media.src | relative_url }}" alt="{{ card.media.alt }}" />
       {%- endif %}
     </div>
     <div class="publication-info-col">
       <div class="publication-title">
-        <b>{% if card.title_url %}<a href="{{ card.title_url }}" target="_blank">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</b>
+        <b>{% if card.title_url %}<a href="{{ card.title_url | relative_url }}" target="_blank">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</b>
       </div>
       <div class="publication-author">{{ card.authors }}</div>
       <div class="publication-conference">{{ card.venue }}</div>
@@ -31,7 +31,7 @@ or _data/projects.yml). Fields holding raw HTML are emitted unescaped on purpose
       {%- if card.links %}
       <div class="publication-link">
         {%- for l in card.links %}
-        [<a {% if l.download %}download {% endif %}href="{{ l.url }}" target="_blank">{{ l.label }}</a>]
+        [<a {% if l.download %}download {% endif %}href="{{ l.url | relative_url }}" target="_blank">{{ l.label }}</a>]
         {%- endfor %}
       </div>
       {%- endif %}

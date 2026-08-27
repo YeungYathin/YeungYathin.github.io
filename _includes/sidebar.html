@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <div class="sidebar-head">
     <figure>
-      <img src="{{ site.data.profile.avatar }}" alt="{{ site.data.profile.avatar_alt }}"
+      <img src="{{ site.data.profile.avatar | relative_url }}" alt="{{ site.data.profile.avatar_alt }}"
            width="132" height="132" />
     </figure>
 
@@ -19,7 +19,7 @@
 
   <div class="social">
     {%- for s in site.data.profile.socials %}
-    <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.label }}"><i class="{{ s.icon }}" aria-hidden="true"></i></a>
+    <a href="{{ s.url | relative_url }}" target="_blank" rel="noopener" aria-label="{{ s.label }}"><i class="{{ s.icon }}" aria-hidden="true"></i></a>
     {%- endfor %}
   </div>
 
