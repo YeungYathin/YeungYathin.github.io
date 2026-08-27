@@ -1,0 +1,16 @@
+# Academic service. Raw inner HTML per item. The reviewer entry holds a
+# nested <ul> of venues, so items are stored whole rather than flattened.
+
+- '<strong>Student Researcher</strong>: Invited by the <strong>North Carolina AI Leadership Council</strong>
+  to support its <strong>Tech, Data, & Infrastructure team</strong>, hosted by the <strong>North Carolina
+  Office of AI and Policy</strong> (Jan 2026 – Jun 2026). Provided background, baseline, and resource-mapping
+  research to the Council and its subcommittees — work acknowledged in the official <a href="https://it.nc.gov/documents/statewide-ai-strategic-roadmap/open"
+  target="_blank" ><strong>NC Statewide AI Strategic Roadmap</strong></a >, <a href="https://www.commerce.nc.gov/news/press-releases/2026/07/01/governor-stein-announces-ai-strategic-roadmap-protect-and-better-serve-north-carolinians-prepare"
+  target="_blank" >announced by Governor Josh Stein</a > in Jul 2026.'
+- '<strong>Reviewer</strong>: <ul> <li>ACL Rolling Review (ARR, 2026)</li> <li> ICLR 2026 Workshop on
+  Foundation Models for Science (FM4Science, 2026) </li> <li> IEEE International Conference on Healthcare
+  Informatics (IEEE ICHI, 2026) </li> <li> IEEE Transactions on Circuits and Systems for Video Technology
+  (IEEE TCSVT, 2026) </li> <li>IEEE Transactions on Multimedia (IEEE TMM, 2026)</li> <li> IEEE Journal
+  of Selected Topics in Signal Processing (Intelligent Robotics SI, 2023) </li> </ul>'
+- '<strong>Teaching assistant</strong>: DECISION 520Q/618: Data Science for Business (Fall 2024), <a href="https://www.fuqua.duke.edu/"
+  target="_blank" >Duke Fuqua School of Business</a >'

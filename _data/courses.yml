@@ -1,0 +1,21 @@
+# Graduate coursework, newest first. Raw inner HTML per item: course code
+# and title, instructor link, grade in <b>.
+
+- 'ECE 590 - Cross Platform Mobile App Programming (Spring 2026). (Instructor: <a href="https://scholars.duke.edu/person/donald.boulia"
+  target="_blank" >Adjunct Instructor Donald Boulia</a >) <br />Grade: <b>A</b>'
+- 'ECE 899 - Independent Study (Spring 2026). (Instructor: <a href="https://www.kamaleswaran.com/team"
+  target="_blank" >Professor Rishi Kamaleswaran</a >) <br />Grade: <b>A+</b>'
+- 'ECE 684 - Natural Language Processing (Fall 2025). (Instructor: <a href="https://ece.duke.edu/people/patrick-wang/"
+  target="_blank" >Professor Patrick Wang</a >) <br />Grade: <b>A+</b>'
+- 'ECE 899 - Independent Study (Fall 2025). (Instructor: <a href="https://www.kamaleswaran.com/team" target="_blank"
+  >Professor Rishi Kamaleswaran</a >) <br />Grade: <b>A+</b>'
+- 'ECE 689 - Advanced Topics in Deep Learning (Spring 2025). (Instructor: <a href="https://ece.duke.edu/people/vahid-tarokh/"
+  target="_blank" >Rhodes Family Distinguished Professor Vahid Tarokh</a >) <br />Grade: <b>A+</b>'
+- 'COMPSCI 527 - Computer Vision (Spring 2025). (Instructor: <a href="https://scholars.duke.edu/person/tomasi"
+  target="_blank" >Iris Einheuser Distinguished Professor Carlo Tomasi</a >) <br />Grade: <b>A</b>'
+- 'ECE 682 / STA 561 - Probabilistic Machine Learning (Spring 2025). (Instructor: <a href="https://scholars.duke.edu/person/eblaber"
+  target="_blank" >James B. Duke Distinguished Professor Eric Laber</a >) <br />Grade: <b>A</b>'
+- 'ECE 685 - Introduction to Deep Learning (Fall 2024). (Instructor: <a href="https://ece.duke.edu/people/vahid-tarokh/"
+  target="_blank" >Rhodes Family Distinguished Professor Vahid Tarokh</a >) <br />Grade: <b>A-</b>'
+- 'ECE 590 - Robot Learning (Fall 2024). (Instructor: <a href="http://boyuanchen.com/index.html" target="_blank"
+  >Professor Boyuan Chen</a >) <br />Grade: <b>A</b>'
