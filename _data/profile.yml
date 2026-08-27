@@ -1,0 +1,26 @@
+# Identity and contact details shown in the sidebar.
+
+avatar: assets/img/yixuan.jpeg
+subtitle: "Hi there! 🎾"
+
+emails:
+  - yixuan.yang@duke.edu
+  - yangyixuan0530@gmail.com
+
+# icon is the full class string; Font Awesome and Academicons are both loaded.
+socials:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/yeungyathin
+    icon: fa-brands fa-linkedin svg-inline--fa fa-w-16 fa-2x
+  - label: GitHub
+    url: https://github.com/YeungYathin
+    icon: fa-brands fa-github-square svg-inline--fa fa-w-16 fa-2x
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=U97wn_wAAAAJ&hl=en&oi=ao
+    icon: ai ai-google-scholar-square svg-inline--fa fa-w-16 fa-2x
+  - label: X
+    url: https://x.com/Yeung_Yathin
+    icon: fa-brands fa-x-twitter svg-inline--fa fa-w-16 fa-2x
+  - label: CV
+    url: assets/docs/Yixuan_Yang_CV.pdf
+    icon: fa-sharp fa-solid fa-file-pdf svg-inline--fa fa-w-16 fa-2x

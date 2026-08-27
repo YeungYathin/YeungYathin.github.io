@@ -1,0 +1,25 @@
+# Sidebar quick links, in page order.
+#
+# KNOWN DEFECT, preserved here rather than fixed: "Reviewer" and "Teaching" are
+# two entries pointing at the same #reviewer anchor, whose own heading reads
+# "Academic Service" — three names for one section. MenuSpy highlights both at
+# once. Fixing it changes what the page says, so it belongs with the other
+# content corrections, not with the mechanical move into data.
+
+- label: Bio
+  anchor: biography
+  active: true
+- label: News
+  anchor: news
+- label: Research Experiences
+  anchor: publications
+- label: Projects
+  anchor: projects
+- label: Courses
+  anchor: courses
+- label: Reviewer
+  anchor: reviewer
+- label: Teaching
+  anchor: reviewer
+- label: Miscellaneous
+  anchor: yixuanlife

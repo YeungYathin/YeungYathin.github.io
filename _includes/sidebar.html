@@ -1,74 +1,30 @@
-          <div class="column is-2" id="sidebar_">
-            <div class="sticky">
-              <figure>
-                <img src="assets/img/yixuan.jpeg" />
-              </figure>
-              <br />
-              <div class="content">
-                <!-- <h3>Yathin Yeung</h3> -->
-                <p class="subtitle">Hi there! 🎾</p>
-                <!-- <h6>Duke University</h6> -->
-              </div>
-              <div class="details">
-                <p>
-                  <a href="mailto:yixuan.yang@duke.edu">yixuan.yang@duke.edu</a>
-                </p>
-                <p>
-                  <a href="mailto:yangyixuan0530@gmail.com"
-                    >yangyixuan0530@gmail.com</a
-                  >
-                </p>
-              </div>
-              <div class="social">
-                <a
-                  href="https://www.linkedin.com/in/yeungyathin"
-                  target="_blank"
-                >
-                  <i
-                    class="fa-brands fa-linkedin svg-inline--fa fa-w-16 fa-2x"
-                  ></i>
-                </a>
-                <a href="https://github.com/YeungYathin" target="_blank">
-                  <i
-                    class="fa-brands fa-github-square svg-inline--fa fa-w-16 fa-2x"
-                  ></i>
-                </a>
-                <a
-                  href="https://scholar.google.com/citations?user=U97wn_wAAAAJ&hl=en&oi=ao"
-                  target="_blank"
-                >
-                  <i
-                    class="ai ai-google-scholar-square svg-inline--fa fa-w-16 fa-2x"
-                  ></i>
-                </a>
-                <a href="https://x.com/Yeung_Yathin" target="_blank">
-                  <i
-                    class="fa-brands fa-x-twitter svg-inline--fa fa-w-16 fa-2x"
-                  ></i>
-                </a>
-                <a href="assets/docs/Yixuan_Yang_CV.pdf" target="_blank">
-                  <i
-                    class="fa-sharp fa-solid fa-file-pdf svg-inline--fa fa-w-16 fa-2x"
-                  ></i>
-                </a>
-              </div>
-              <!-- <div class="content">
-                  <i><p class="life"><a href="https://www.personal.yixuanyang.com" target="_blank">Yixuan's Life<br>(VPN needed if you are in China)</a></p></i>
-                </div> -->
-              <!-- is-hidden-mobile -->
-              <div id="sidebar" class="menu sticky">
-                <p class="menu-label"><b>Quick Links</b></p>
-                <ul class="menu-list">
-                  <li><a href="#biography" class="is-active">Bio</a></li>
-                  <li><a href="#news">News</a></li>
-                  <li><a href="#publications">Research Experiences</a></li>
-                  <li><a href="#projects">Projects</a></li>
-                  <li><a href="#courses">Courses</a></li>
-                  <li><a href="#reviewer">Reviewer</a></li>
-                  <li><a href="#reviewer">Teaching</a></li>
-                  <li><a href="#yixuanlife">Miscellaneous</a></li>
-                  <!-- <li><a href="https://sites.google.com/view/yeungyathin/home">Yixuan's Life</a></li> -->
-                </ul>
-              </div>
-            </div>
-          </div>
+<div class="column is-2" id="sidebar_">
+  <div class="sticky">
+    <figure>
+      <img src="{{ site.data.profile.avatar }}" />
+    </figure>
+    <br />
+    <div class="content">
+      <p class="subtitle">{{ site.data.profile.subtitle }}</p>
+    </div>
+    <div class="details">
+      {%- for e in site.data.profile.emails %}
+      <p><a href="mailto:{{ e }}">{{ e }}</a></p>
+      {%- endfor %}
+    </div>
+    <div class="social">
+      {%- for s in site.data.profile.socials %}
+      <a href="{{ s.url }}" target="_blank"><i class="{{ s.icon }}"></i></a>
+      {%- endfor %}
+    </div>
+    <!-- is-hidden-mobile -->
+    <div id="sidebar" class="menu sticky">
+      <p class="menu-label"><b>Quick Links</b></p>
+      <ul class="menu-list">
+        {%- for n in site.data.nav %}
+        <li><a href="#{{ n.anchor }}"{% if n.active %} class="is-active"{% endif %}>{{ n.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
