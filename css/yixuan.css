@@ -133,14 +133,17 @@ h1, h2, h3 {
   justify-content: space-between;
   gap: var(--s-5);
 }
+/* Deliberately quieter than the sidebar name. Same face, same colour and the
+   same weight made the bar read as a second title rather than as a way home. */
 .wordmark {
-  font-family: var(--font-serif);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--duke);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink-muted);
   text-decoration: none;
   white-space: nowrap;
 }
+.wordmark:hover { color: var(--link); }
 .topbar nav ul {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5);

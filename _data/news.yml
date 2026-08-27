@@ -9,8 +9,8 @@
 - label: '[Jul. 2026]'
   collapsed: false
   body: The <a href="https://it.nc.gov/documents/statewide-ai-strategic-roadmap/open" target="_blank"
-    >NC Statewide AI Strategic Roadmap</a >, which I contributed to as a Student Researcher with the North
-    Carolina AI Leadership Council, was officially <a href="https://www.commerce.nc.gov/news/press-releases/2026/07/01/governor-stein-announces-ai-strategic-roadmap-protect-and-better-serve-north-carolinians-prepare"
+    >NC Statewide AI Strategic Roadmap</a >, which I contributed to as a Student Researcher with the <strong
+    >North Carolina AI Leadership Council</strong >, was officially <a href="https://www.commerce.nc.gov/news/press-releases/2026/07/01/governor-stein-announces-ai-strategic-roadmap-protect-and-better-serve-north-carolinians-prepare"
     target="_blank" >announced by Governor Josh Stein</a >.
 - label: '[May 2026]'
   collapsed: false
@@ -20,11 +20,6 @@
 - label: '[Mar. 2026]'
   collapsed: false
   body: I'm glad to share that I passed my PhD qualification exam!
-- label: '[Jan. 2026]'
-  collapsed: false
-  body: I have been selected as a Student Researcher for the <strong >North Carolina AI Leadership Council
-    (Tech, Data, & Infrastructure team)</strong >, an initiative hosted by the <strong>North Carolina
-    Office of AI and Policy</strong> to support government agencies in their AI-related decision-making.
 - label: '[Nov. 2025]'
   collapsed: false
   body: '🎉 The paper "<a href="https://arxiv.org/abs/2411.06121" target="_blank" >SniffySquad: Patchiness-Aware
@@ -44,8 +39,8 @@
 - label: '[May 2024]'
   collapsed: true
   body: 🎉 I was awarded as an <span class="emphasis">Outstanding Undergraduate Graduate (only 25%), Class
-    of 2024 (SUSTech)</span>, as well as a <span class="emphasis">Distinguished Graduate (Top 2 out of 245
-    students)</span> in the Department of Computer Science and Engineering.
+    of 2024 (SUSTech)</span>, as well as a <span class="emphasis">Distinguished Graduate (Top 2 out of
+    245 students)</span> in the Department of Computer Science and Engineering.
 - label: '[Mar. 2024]'
   collapsed: true
   body: 🎉 The paper "<a href="https://ieeexplore.ieee.org/abstract/document/10611785" target="_blank"
