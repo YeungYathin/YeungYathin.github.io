@@ -105,6 +105,8 @@ h1, h2, h3 {
 
 /* Section headings. Asymmetric margins group each heading with its own
    content instead of stranding it midway between two blocks. */
+.section-block { scroll-margin-top: 76px; }   /* clear the sticky bar on anchor jumps */
+
 .section-block > h2 {
   font-size: var(--text-xl);
   margin: var(--s-8) 0 var(--s-5);
@@ -115,7 +117,13 @@ h1, h2, h3 {
 
 /* Top bar ---------------------------------------------------------------- */
 
-.topbar { border-bottom: 1px solid var(--rule); }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
 .topbar-inner {
   max-width: var(--page-max);
   margin: 0 auto;
@@ -157,13 +165,9 @@ h1, h2, h3 {
 .content { flex: 1; min-width: 0; }
 .content > * + * { margin-top: 0; }
 
-/* Prose is capped independently of the column, so a wide element (a research
-   entry, a figure) can use the full track while text stays readable.
-
-   The cap goes on the paragraphs, not the section: a section-wide max-width
-   would shorten the heading rule too, and About Me would sit under a stub of a
-   line while News and Research Experiences got full-width ones. */
-.prose p { max-width: var(--measure-prose); margin: 0 0 var(--s-4); }
+/* Prose fills the content column. `--measure-prose` is still defined and can
+   be reinstated here in one line if the lines read too long. */
+.prose p { margin: 0 0 var(--s-4); }
 
 /* Sidebar ---------------------------------------------------------------- */
 
@@ -213,11 +217,17 @@ h1, h2, h3 {
 .sidebar .details p { margin: 0; }
 
 .social { display: flex; gap: var(--s-3); margin-bottom: var(--s-5); }
-.social a { color: var(--ink-muted); text-decoration: none; font-size: 1.15rem; }
-.social a:hover { color: var(--link); }
+.social a { color: var(--link); text-decoration: none; font-size: 1.15rem; }
+.social a:hover { color: var(--link-hover); }
 
 /* Sidebar navigation. No scroll-spy: with the page this short, a highlight
    that tracks the viewport tells the reader something they can already see. */
+.sidebar nav { border-top: 1px solid var(--rule); padding-top: var(--s-4); margin-top: var(--s-1); }
+.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
+.sidebar nav li + li { margin-top: var(--s-2); }
+.sidebar nav a { font-size: var(--text-sm); text-decoration: none; color: var(--ink-muted); }
+.sidebar nav a:hover { color: var(--link); }
+
 /* Name card -------------------------------------------------------------- */
 
 .namecard { margin-bottom: var(--s-6); }
@@ -376,6 +386,10 @@ h1, h2, h3 {
 
   .topbar-inner { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
   .site-footer { justify-content: center; text-align: center; }
+
+  .sidebar nav { border-top: 0; padding-top: 0; margin-top: var(--s-2); }
+  .sidebar nav ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+  .sidebar nav li + li { margin-top: 0; }
 }
 
 @media (max-width: 560px) {

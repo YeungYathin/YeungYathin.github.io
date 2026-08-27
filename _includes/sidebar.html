@@ -22,4 +22,12 @@
     <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.label }}"><i class="{{ s.icon }}" aria-hidden="true"></i></a>
     {%- endfor %}
   </div>
+
+  <nav aria-label="Sections">
+    <ul>
+      {%- for n in site.data.nav %}
+      <li><a href="#{{ n.anchor }}">{{ n.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
 </aside>

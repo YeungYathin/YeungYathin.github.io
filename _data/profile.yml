@@ -4,8 +4,11 @@ avatar: assets/img/yixuan.jpeg
 avatar_alt: "Yixuan Yang"
 name: Yixuan Yang
 name_cn: 杨一轩
+# Kept short on purpose. Once subpages exist the sidebar is the only thing
+# naming him, so the line has to stay, but the department spelled out wrapped
+# to two lines and repeated what About Me says a column away.
 role: |
-  Ph.D. Student, Electrical and Computer Engineering<br />
+  Ph.D. Student in ECE<br />
   <a href="https://duke.edu/">Duke University</a>
 
 # Institutional address only. The gmail one lives on the CV.

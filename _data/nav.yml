@@ -1,12 +1,9 @@
-# Sidebar quick links, in page order.
-#
-# `anchor` keeps the historical id even where the label has moved on:
-# #reviewer holds the Academic Service section. Those ids are the URLs that
-# exist in the world, so they stay put while the labels get to be accurate.
+# In-page section anchors. These live in the sidebar; the top bar carries
+# page-to-page links instead. Anchors keep their historical ids: #publications
+# and #reviewer are the URLs that already exist in the world.
 
 - label: Bio
   anchor: biography
-  active: true
 - label: News
   anchor: news
 - label: Research Experiences
