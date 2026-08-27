@@ -1,0 +1,13 @@
+<div class="publications" id="publications">
+  <h1>Research Experiences</h1>
+
+  <p>
+    You can also check my
+    <a href="https://scholar.google.com/citations?user=U97wn_wAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+    profile.
+  </p>
+
+  {%- for card in site.data.publications %}
+  {% include publication-card.html card=card %}
+  {%- endfor %}
+</div>

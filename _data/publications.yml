@@ -1,0 +1,76 @@
+# Research experiences, newest first.
+#
+# Fields hold raw inner HTML where the markup carries meaning: `authors`
+# bolds the owner's name, `venue` ends in <br />, `extra` lines carry links.
+# `slug` becomes the element id. It replaces six copies of a single
+# copy-pasted id that came from a template card for someone else's paper.
+
+- slug: clin-jepa
+  media:
+    type: image
+    src: assets/img/Clin-JEPA-main-figure.png?v=2
+    alt: ''
+  title: 'Clin-JEPA: A Multi-Phase Co-Training Framework for Joint-Embedding Predictive Pretraining on
+    EHR Patient Trajectories'
+  title_url: https://arxiv.org/abs/2605.10840
+  authors: <b>Yixuan Yang</b>, Mehak Arora, Ryan Zhang, Baraa Abed, Junseob Kim, Tilendra Choudhary, Md
+    Hassanuzzaman, Kevin Zhu, Ayman Ali, Chengkun Yang, Alasdair Edward Gent, Victor Moas, Rishikesan
+    Kamaleswaran
+  venue: 'Preprint: arXiv:2605.10840 (May, 2026)<br />'
+  links:
+  - label: Paper
+    url: https://arxiv.org/pdf/2605.10840
+    download: true
+  - label: Code
+    url: https://github.com/Kamaleswaran-Lab/Clin-JEPA
+- slug: humanoid-manipulation
+  media:
+    type: video
+    src: assets/video/unitree_g1.mp4
+  title: Contact-Rich Humanoid Manipulation for Scientific Laboratory Automation
+  authors: <b>Yixuan Yang</b>. Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor
+    Boyuan Chen</a >
+  venue: General Robotics Lab, Duke University (Aug. 2024 -- Mar. 2025)<br />
+  extra:
+  - <b>Keywords:</b> Humanoid Robot, <a href="https://www.unitree.com/g1" target="_blank" >Unitree G1</a
+    >, NVIDIA Isaac Gym, Deep Reinforcement Learning, Contact-Rich Manipulation<br />
+- slug: sniffysquad
+  media:
+    type: image
+    src: assets/img/sniffysquad.png
+    alt: ''
+  title: 'SniffySquad: Patchiness-Aware Gas Source Localization with Multi-Robot Collaboration'
+  title_url: https://arxiv.org/abs/2411.06121
+  authors: Yuhan Cheng*, Xuecheng Chen*, <b>Yixuan Yang</b>, Haoyang Wang, Jingao Xu, Chaopeng Hong, Susu
+    Xu, Xiao-Ping Zhang, Yunhao Liu, Xinlei Chen
+  venue: 'ACM Transactions on Sensor Networks (Jan, 2026) (DOI: 10.1145/3786599)<br />'
+  links:
+  - label: Paper
+    url: https://dl.acm.org/doi/10.1145/3786599
+    download: true
+- slug: olfactory-sensing
+  media:
+    type: video
+    src: assets/video/olfactory.mp4
+  title: Olfactory Sensing in Turbulent Airflow via Collaborative Robots
+  title_url: https://dl.acm.org/doi/abs/10.1145/3638550.3643049
+  authors: Yuhan Cheng*, Xuecheng Chen*, <b>Yixuan Yang</b>, Haoyang Wang, Yuxuan Liu, Xinlei Chen
+  venue: 'HotMobile 2024: Proceedings of the 25th International Workshop on Mobile Computing Systems and
+    Applications<br />'
+  links:
+  - label: Paper
+    url: https://dl.acm.org/doi/abs/10.1145/3638550.3643049
+    download: true
+- slug: uflp
+  media:
+    type: image
+    src: assets/img/UFLP.png
+    alt: ''
+  title: Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems
+  title_url: https://ieeexplore.ieee.org/abstract/document/10611785
+  authors: Shuaixiang Zhang, <b>Yixuan Yang</b>, Hao Tong, Xin Yao
+  venue: 'CEC 2024: IEEE Congress on Evolutionary Computation<br />'
+  links:
+  - label: Paper
+    url: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10611785
+    download: true

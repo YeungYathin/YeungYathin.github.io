@@ -1,0 +1,43 @@
+# Signature projects.
+# Same card shape as research.yml; see the notes there.
+
+- slug: text-to-image
+  media:
+    type: image
+    src: assets/img/ECE_685.gif
+    alt: ''
+  title: Text-to-Image Generation with Conditional VAEs and CLIP Embeddings
+  authors: 'Final Project: Duke ECE 685 - Introduction to Deep Learning (2024 Fall)<br />'
+  venue: Advised by <a href="https://ece.duke.edu/people/vahid-tarokh/" target="_blank" >Rhodes Family
+    Distinguished Professor Vahid Tarokh</a > (NAE Member).
+  links:
+  - label: Paper
+    url: assets/docs/ECE_685_Project_Report.pdf
+  - label: Github
+    url: https://github.com/YeungYathin/Deep-Learning-Project
+- slug: unsolvable-tasks
+  media:
+    type: image
+    src: assets/img/ECE590.jpeg
+    alt: ''
+  title: Unsolvable Robotic Task Detection Using Synthetic Data Driven By LLM (LLaVA)
+  authors: 'Final Project: Duke ECE 590/ME 555 - Robot Learning (2024 Fall)<br />'
+  venue: Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor Boyuan Chen</a
+    >.
+  links:
+  - label: Paper
+    url: assets/docs/ECE_590_project_report.pdf
+  - label: Github
+    url: https://github.com/linyueqian/ME555_Final_Project
+- slug: minesweeper
+  media:
+    type: image
+    src: assets/img/CS102A-Minesweeper.jpg
+    alt: ''
+  title: 'Minesweeper++: A Feature-Rich Game Development with Java Swing GUI'
+  authors: 'Final Project: SUSTech CS102A - Introduction to Computer Programming (Language: Java) (2021
+    Spring)<br />'
+  venue: Advised by <a href="https://yepangliu.github.io/" target="_blank" >Professor Yepang Liu</a >.
+  links:
+  - label: Github
+    url: https://github.com/YeungYathin/SUSTech-CS102A-Final-Project/tree/main
