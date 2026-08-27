@@ -49,11 +49,11 @@
   /* `ch` measures the digit zero, which is far wider than the average letter:
      68ch of Inter renders about 88 characters of running text. 56ch lands at
      roughly 70, inside the comfortable 45-75 range. */
-  --measure-prose: 56ch;
+  --measure-prose: 58ch;
   /* The frame is wide; the prose track inside it is not. That split is the
      whole point: a wide container lets news rows and research entries use the
      screen, while running text stays at a readable measure. */
-  --page-max:      1240px;
+  --page-max:      1180px;
 }
 
 /* Reset ---------------------------------------------------------------- */
@@ -112,6 +112,37 @@ h1, h2, h3 {
   border-bottom: 1px solid var(--rule);
 }
 .section-block:first-of-type > h2 { margin-top: 0; }
+
+/* Top bar ---------------------------------------------------------------- */
+
+.topbar { border-bottom: 1px solid var(--rule); }
+.topbar-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--s-4) var(--s-5);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-5);
+}
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--duke);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.topbar nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5);
+}
+.topbar nav a {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.topbar nav a:hover { color: var(--link); }
 
 /* Page frame ------------------------------------------------------------- */
 
@@ -187,16 +218,6 @@ h1, h2, h3 {
 
 /* Sidebar navigation. No scroll-spy: with the page this short, a highlight
    that tracks the viewport tells the reader something they can already see. */
-.sidebar nav { border-top: 1px solid var(--rule); padding-top: var(--s-4); }
-.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
-.sidebar nav li + li { margin-top: var(--s-2); }
-.sidebar nav a {
-  font-size: var(--text-sm);
-  text-decoration: none;
-  color: var(--ink-muted);
-}
-.sidebar nav a:hover { color: var(--link); }
-
 /* Name card -------------------------------------------------------------- */
 
 .namecard { margin-bottom: var(--s-6); }
@@ -319,14 +340,16 @@ h1, h2, h3 {
   font-size: var(--text-xs);
   color: var(--ink-muted);
 }
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
 .site-footer p { margin: 0; }
-.footer-updated { font-style: italic; margin-top: var(--s-1) !important; }
+.footer-updated { font-style: italic; }
 
 /* Responsive ------------------------------------------------------------- */
-
-@media (min-width: 1600px) {
-  :root { --page-max: 1440px; --sidebar: 264px; }
-}
 
 @media (max-width: 860px) {
   .page { flex-direction: column; gap: var(--s-6); padding-top: var(--s-6); }
@@ -348,12 +371,11 @@ h1, h2, h3 {
   .sidebar .details { margin: var(--s-4) 0 var(--s-2); }
   .social { margin-bottom: var(--s-3); }
 
-  .sidebar nav { border-top: 0; padding-top: 0; }
-  .sidebar nav ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
-  .sidebar nav li + li { margin-top: 0; }
-
   .publication-item { grid-template-columns: 120px 1fr; gap: var(--s-4); }
   .publication-img { width: 120px; }
+
+  .topbar-inner { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+  .site-footer { justify-content: center; text-align: center; }
 }
 
 @media (max-width: 560px) {

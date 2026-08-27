@@ -1,0 +1,18 @@
+{%- comment -%}
+Sits on the page ground with a hairline under it, not as a filled colour band.
+A navy bar is what Yueqian Lin's site uses, and copying it would make the two
+read as siblings; the navy stays in the headings and the rules instead.
+{%- endcomment -%}
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">Yixuan Yang</a>
+    <nav aria-label="Site">
+      <ul>
+        {%- for n in site.data.nav %}
+        <li><a href="#{{ n.anchor }}">{{ n.label }}</a></li>
+        {%- endfor %}
+        <li><a href="{{ '/assets/docs/Yixuan_Yang_CV.pdf' | relative_url }}" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
