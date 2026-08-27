@@ -1,0 +1,131 @@
+# News, newest first.
+#
+# collapsed: false -> shown on load;  true -> behind the show-more toggle.
+# The split is the site's existing one: everything from 2023 back is
+# personal history and already sat behind the toggle. Keeping the flag in
+# data means a future move to a separate page is a template filter, not a
+# re-litigation of which entry belongs where.
+#
+# body is raw HTML on purpose: these lines carry links, <br /> breaks and
+# emoji whose exact rendering matters.
+
+- label: '[Jul. 2026]'
+  collapsed: false
+  body: The <a href="https://it.nc.gov/documents/statewide-ai-strategic-roadmap/open" target="_blank"
+    >NC Statewide AI Strategic Roadmap</a >, which I contributed to as a Student Researcher with the North
+    Carolina AI Leadership Council, was officially <a href="https://www.commerce.nc.gov/news/press-releases/2026/07/01/governor-stein-announces-ai-strategic-roadmap-protect-and-better-serve-north-carolinians-prepare"
+    target="_blank" >announced by Governor Josh Stein</a >.
+- label: '[May 2026]'
+  collapsed: false
+  body: 'Our new preprint "<a href="https://arxiv.org/abs/2605.10840" target="_blank" >Clin-JEPA: A Multi-Phase
+    Co-Training Framework for Joint-Embedding Predictive Pretraining on EHR Patient Trajectories</a >"
+    is now on arXiv!'
+- label: '[Mar. 2026]'
+  collapsed: false
+  body: I'm glad to share that I passed my PhD qualification exam!
+- label: '[Jan. 2026]'
+  collapsed: false
+  body: I have been selected as a Student Researcher for the <strong >North Carolina AI Leadership Council
+    (Tech, Data, & Infrastructure team)</strong >, an initiative hosted by the <strong>North Carolina
+    Office of AI and Policy</strong> to support government agencies in their AI-related decision-making.
+- label: '[Nov. 2025]'
+  collapsed: false
+  body: '🎉 The paper "<a href="https://arxiv.org/abs/2411.06121" target="_blank" >SniffySquad: Patchiness-Aware
+    Gas Source Localization with Multi-Robot Collaboration</a >" got accepted to the journal - ACM Transactions
+    on Sensor Networks.'
+- label: '[Aug. 2025]'
+  collapsed: false
+  body: I joined the <a href="https://www.kamaleswaran.com/" target="_blank" >Kamaleswaran Lab</a > to
+    kick off my second year.
+- label: '[Apr. 2025]'
+  collapsed: false
+  body: I got my first citation in Google Scholar! 😆
+- label: '[Aug. 2024]'
+  collapsed: false
+  body: I officially started my Ph.D. journey in the General Robotics Lab at Duke University! 🚀
+- label: '[May 2024]'
+  collapsed: false
+  body: 🎉 I was awarded the <font color="red">Guo Xie Bi Rong Fellowship</font> (¥10,000), Class of 2024.
+    <font color="red">(only 4%)</font>
+- label: '[May 2024]'
+  collapsed: false
+  body: 🎉 I was awarded as an <font color="red" >Outstanding Undergraduate Graduate (only 25%), Class
+    of 2024 (SUSTech)</font >, as well as a <font color="red" >Distinguished Graduate (Top 2 out of 245
+    students)</font > in the Department of Computer Science and Engineering.
+- label: '[Mar. 2024]'
+  collapsed: false
+  body: 🎉 The paper "<a href="https://ieeexplore.ieee.org/abstract/document/10611785" target="_blank"
+    >Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems</a >" got
+    accepted to the conference CEC 2024 held in Yokohama, Japan.
+- label: '[Dec. 2023]'
+  collapsed: false
+  body: '🎉 The paper "<a href="https://dl.acm.org/doi/abs/10.1145/3638550.3643049" target="_blank" >Poster:
+    Olfactory Sensing in Turbulent Airflow via Collaborative Robots</a >" got accepted to the conference
+    HotMobile ''24 held in San Diego, United States.'
+- label: '[May 2023]'
+  collapsed: true
+  body: I became a visiting student in Professor <a href="https://www.sigs.tsinghua.edu.cn/cxl_en/main.htm"
+    target="_blank" >Xinlei Chen</a >'s lab. I worked with several Ph.D. and MS students in the project
+    Gas Source Localization driven by Collaborative Robots.
+- label: '[Jan. 2023]'
+  collapsed: true
+  body: I joined Chair Professor <a href="https://scholar.google.co.uk/citations?user=UUtYPl4AAAAJ&hl=en"
+    target="_blank" >Xin Yao (Fellow, IEEE)</a >'s Lab, and started doing research in large-scale UFLP
+    Problem.
+- label: '[Aug. 2022]'
+  collapsed: true
+  body: 🛫 I arrived at the United States to be an exchange student at <a href="https://www.berkeley.edu/"
+    target="_blank" >UC Berkeley</a > 😎. Hi California!!! (Cal's weather is soooooo fantastic!!! ☀️🥹)
+- label: '[May 2022]'
+  collapsed: true
+  body: I attended the Summer Workshop 2022 in the <a href="https://www.comp.nus.edu.sg/" target="_blank"
+    >School of Computing</a > at <a href="https://www.nus.edu.sg/" target="_blank" >National University
+    of Singapore (NUS)</a >. We used Unity to develop a networked 2D Game.
+- label: '[Apr. 2021]'
+  collapsed: true
+  body: 'I independently developed my very first computer science project in Java — a <a href="https://github.com/YeungYathin/SUSTech-CS102A-Final-Project/tree/main"
+    >Minesweeper game</a >! I received a perfect score for the course project. (Friendly reminder: ChatGPT
+    didn''t exist back then! 🤗)'
+- label: '[Aug. 2020]'
+  collapsed: true
+  body: Excited to start my undergraduate studies in a very youthful and energetic university - <a href="https://www.sustech.edu.cn/"
+    target="_blank" >Southern University of Science and Technology</a > in Shenzhen, China! <br />(Always
+    claimed to rank 8th in Mainland China 🤪🤣.)
+- label: '[Jan. 2020]'
+  collapsed: true
+  body: 😷🤒 Due to COVID-19, schools were shut down and I was locked down at home while preparing for the
+    <a href="https://en.wikipedia.org/wiki/National_College_Entrance_Examination_(China)" target="_blank"
+    >Gaokao</a >.
+- label: '[Aug. 2016]'
+  collapsed: true
+  body: Honored to join <a href="https://www.shimen.org/" target="_blank" >Shimen High School (石门中学)</a
+    > (known as the best high school in Foshan 😎)! My colorful high school journey kicked off!
+- label: '[Aug. 2013]'
+  collapsed: true
+  body: I began my junior high journey at <a href="https://baike.baidu.com/item/%E7%9F%B3%E9%97%A8%E5%AE%9E%E9%AA%8C%E5%AD%A6%E6%A0%A1/3201674"
+    target="_blank" >Shimen Experimental School (石门实验学校)</a > (now renamed Shishi Experimental School),
+    joining the English Specialty Class as a new student! (Originally, I was supposed to attend <a href="https://zh.wikipedia.org/wiki/%E5%8D%97%E6%B5%B7%E5%AE%9E%E9%AA%8C%E4%B8%AD%E5%AD%A6"
+    target="_blank" >Nanhai Experimental Middle School (南海实验中学)</a >, but due to an unexpected twist of
+    fate, I ended up at Shimen instead.)
+- label: '[Apr. 2012]'
+  collapsed: true
+  body: I got my <a href="https://www.wechat.com/" target="_blank" >Wechat</a > account (much earlier
+    than other people 😝)!
+- label: '[Oct. 2008]'
+  collapsed: true
+  body: When I was in second grade, I called the Foshan mayor's hotline 12345 to suggest building a footbridge
+    connecting my home to the shopping mall across the road — and six months later, it was actually built.
+- label: '[Sep. 2007]'
+  collapsed: true
+  body: I started my elementary school journey in <a href="http://www.nhedu.net/wjyhxx/xx_1439/201810/t20181017_180078.html"
+    target="_blank" >Nanshi Fuxiao (南师附小)</a >!
+- label: '[2007]'
+  collapsed: true
+  body: I got my first <a href="https://im.qq.com/" target="_blank" >Tencent QQ</a > account 🐧!
+- label: '[May 2004 ~ Jun. 2007]'
+  collapsed: true
+  body: I spent a wonderful childhood at Beilei Kindergarten (Chancheng) and Huayuan Kindergarten (Guicheng)
+    👦!
+- label: '[May 2001]'
+  collapsed: true
+  body: I was born in this beautiful planet 🌏 (2001/05/30)!
