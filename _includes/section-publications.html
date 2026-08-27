@@ -10,4 +10,11 @@
   {%- for card in site.data.publications %}
   {% include publication-card.html card=card %}
   {%- endfor %}
+
+  {%- comment -%}
+  Course project, kept for the robotics signal, deliberately last.
+  {%- endcomment -%}
+  {%- for card in site.data.projects %}
+  {% include publication-card.html card=card %}
+  {%- endfor %}
 </div>

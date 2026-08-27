@@ -11,7 +11,5 @@
   anchor: news
 - label: Research Experiences
   anchor: publications
-- label: Projects
-  anchor: projects
 - label: Academic Service
   anchor: reviewer
