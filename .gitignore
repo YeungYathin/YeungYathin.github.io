@@ -4,3 +4,10 @@ __pycache__/
 .DS_Store
 # CV source lives in Overleaf; cv/ is a clone of that project (see CLAUDE.md)
 /cv/
+
+# Large local archives (e.g. code drops for review) must never enter this Pages repo
+*.zip
+_site/
+.jekyll-cache/
+vendor/
+.bundle/
