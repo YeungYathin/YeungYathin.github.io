@@ -4,9 +4,9 @@ avatar: assets/img/yixuan.jpeg
 avatar_alt: "Yixuan Yang"
 subtitle: "Hi there! 🎾"
 
+# Institutional address only. The gmail one lives on the CV.
 emails:
   - yixuan.yang@duke.edu
-  - yangyixuan0530@gmail.com
 
 # icon is the full class string; Font Awesome and Academicons are both loaded.
 socials:

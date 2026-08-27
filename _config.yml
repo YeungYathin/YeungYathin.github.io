@@ -10,10 +10,9 @@ exclude:
   - cv                 # a nested git clone of the Overleaf project
   - vendor
   - "*.zip"
-
-# Jekyll would otherwise skip these, and assets/papers is content.
-include:
-  - assets
+  # Full-text PDFs are kept in the repo as reference material for writing
+  # summaries. Nothing links to them, so they are not served.
+  - assets/papers
 
 # Leave markdown alone; every page here is hand-written HTML for now.
 markdown: kramdown

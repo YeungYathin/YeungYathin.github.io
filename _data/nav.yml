@@ -13,9 +13,5 @@
   anchor: publications
 - label: Projects
   anchor: projects
-- label: Courses
-  anchor: courses
 - label: Academic Service
   anchor: reviewer
-- label: Miscellaneous
-  anchor: yixuanlife
