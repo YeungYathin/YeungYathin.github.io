@@ -213,6 +213,8 @@ h1, h2, h3 {
   margin: var(--s-3) 0 var(--s-4);
 }
 
+.sidebar .affil { color: var(--duke); font-weight: 500; }
+
 .sidebar .details { font-size: var(--text-sm); margin-bottom: var(--s-4); }
 .sidebar .details p { margin: 0; }
 
@@ -296,10 +298,13 @@ h1, h2, h3 {
 .publication-item:last-child { border-bottom: 0; }
 
 .publication-img-col { width: auto; }
+/* Fixed width, natural height. An earlier version forced 5:3 with object-fit:
+   cover, which cropped every figure that was not that shape and butchered the
+   portrait video. Entry rows are allowed to be uneven; the alternative is
+   showing part of each image. */
 .publication-img {
   width: 168px;
-  aspect-ratio: 5 / 3;
-  object-fit: cover;
+  height: auto;
   border-radius: var(--radius);
   border: 1px solid var(--rule);
   display: block;
@@ -378,7 +383,9 @@ h1, h2, h3 {
   .sidebar .name-cn { display: inline; margin-left: var(--s-2); }
   .sidebar .role { margin: var(--s-1) 0 0; }
 
-  .sidebar .details { margin: var(--s-4) 0 var(--s-2); }
+  .sidebar .affil { color: var(--duke); font-weight: 500; }
+
+.sidebar .details { margin: var(--s-4) 0 var(--s-2); }
   .social { margin-bottom: var(--s-3); }
 
   .publication-item { grid-template-columns: 120px 1fr; gap: var(--s-4); }

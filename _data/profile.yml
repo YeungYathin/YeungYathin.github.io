@@ -9,7 +9,7 @@ name_cn: 杨一轩
 # to two lines and repeated what About Me says a column away.
 role: |
   Ph.D. Student in ECE<br />
-  <a href="https://duke.edu/">Duke University</a>
+  <span class="affil">Duke University</span>
 
 # Institutional address only. The gmail one lives on the CV.
 emails:
