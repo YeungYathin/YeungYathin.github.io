@@ -2,7 +2,11 @@
 
 avatar: assets/img/yixuan.jpeg
 avatar_alt: "Yixuan Yang"
-subtitle: "Hi there! 🎾"
+name: Yixuan Yang
+name_cn: 杨一轩
+role: |
+  Ph.D. Student, Electrical and Computer Engineering<br />
+  <a href="https://duke.edu/">Duke University</a>
 
 # Institutional address only. The gmail one lives on the CV.
 emails:

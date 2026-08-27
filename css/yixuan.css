@@ -1,648 +1,351 @@
-/* font 
-font-family: 'Lora', serif;
-font-family: 'Ubuntu', sans-serif
-*/
+/* ============================================================================
+   yixuanyang.com
+
+   One accent, two neutrals, two typefaces. Duke navy appears as text and as
+   hairline rules, never as a filled band: a coloured chrome bar is what makes
+   an academic page read as a template install.
+
+   Every colour and size is a custom property. Nothing below :root hardcodes a
+   hex value, so a dark theme is a matter of redefining ten variables rather
+   than auditing a stylesheet.
+   ========================================================================= */
+
+:root {
+  /* Colour ---------------------------------------------------------------- */
+  --duke:       #012169;              /* Duke Navy. Headings, name, rules.    */
+  --link:       #00539b;              /* Duke Royal Blue. 7.75:1 on white.    */
+  --link-hover: #012169;              /* Hover darkens, never lightens.       */
+  --ink:        #14161a;              /* Body text.                           */
+  --ink-muted:  #565b66;              /* Venue, dates, author lists. 6.6:1.   */
+  --rule:       rgba(1, 33, 105, 0.14);
+  --bg:         #ffffff;
+  --accent:     #9a2617;              /* Rare. Award emphasis only. 7.1:1.    */
+
+  /* Type ------------------------------------------------------------------ */
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans:  Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs:   0.8125rem;   /* 13px  dates, venue lines, footer               */
+  --text-sm:   0.9375rem;   /* 15px  author lists, nav, metadata              */
+  --text-base: 1.0625rem;   /* 17px  body prose                              */
+  --text-lg:   1.1875rem;   /* 19px  entry titles                            */
+  --text-xl:   1.5rem;      /* 24px  section headings                        */
+  --text-2xl:  2.125rem;    /* 34px  the name                                */
+
+  --lh-tight: 1.25;
+  --lh-body:  1.6;
+  --lh-ui:    1.45;
+
+  /* Space ----------------------------------------------------------------- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px;  --s-6: 32px;  --s-7: 48px;  --s-8: 64px;
+
+  --radius: 6px;
+
+  /* Layout ---------------------------------------------------------------- */
+  --sidebar:       232px;
+  --gutter:        var(--s-8);
+  /* `ch` measures the digit zero, which is far wider than the average letter:
+     68ch of Inter renders about 88 characters of running text. 56ch lands at
+     roughly 70, inside the comfortable 45-75 range. */
+  --measure-prose: 56ch;
+  --page-max:      1040px;
+}
+
+/* Reset ---------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }   /* belongs on html; on body it is a no-op */
+}
 
 body {
   margin: 0;
-  font-family: "Lato", sans-serif;
-  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (min-width: 1500px) {
-  html {
-    zoom: 110%;
-  }
-}
+img, video { max-width: 100%; height: auto; }
 
-/* ===========================
-  Typography
-  =========================== */
-
-.name {
-  font-size: 2.5rem;
-}
-
-.name_title {
-  font-size: 11pt;
-}
-
-.email {
-  color: #022169;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  color: #022169;
-}
-
-h1 {
-  padding-top: 25px;
-}
-
-.site-title h1 {
-  /* color: #143774; */
-  margin: 0;
-}
-
-.subtitle {
-  font-weight: 700;
-  color: #31247b;
-  font-size: 2rem;
-  margin: 0;
-}
-
-.life {
-  font-weight: 1000;
-  color: #094358;
-  font-size: 1.4rem;
-  margin: 0;
-}
-
-.slogan {
-  font-weight: 700;
-  color: #d21717;
-  font-size: 0.75rem;
-  margin: 0;
-  text-align: initial;
-}
-
-.strengthen {
-  color: #d21717;
-}
+/* Links ------------------------------------------------------------------ */
 
 a {
-  text-decoration: none;
-  color: #0033a0;
-  padding: 0.25em 0;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--link) 35%, transparent);
+}
+a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
+a:focus-visible {
+  outline: 2px solid var(--duke);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-a:hover,
-a:focus {
-  color: #6cace4;
-}
+/* Headings --------------------------------------------------------------- */
 
-@media (max-width: 530px) {
-  .mobhide {
-    display: none;
-  }
-}
-
-/* ===========================
-  Layout
-  =========================== */
-
-/* SideBar */
-.content h3 {
-  text-align: center;
-}
-
-.details h3 {
+h1, h2, h3 {
+  font-family: var(--font-serif);
   font-weight: 600;
-  font-size: 1em;
-  color: #000;
+  color: var(--duke);
+  line-height: var(--lh-tight);
 }
 
-.sticky {
-  position: sticky;
-  top: 30px;
-  text-align: center;
+/* Section headings. Asymmetric margins group each heading with its own
+   content instead of stranding it midway between two blocks. */
+.section-block > h2 {
+  font-size: var(--text-xl);
+  margin: var(--s-8) 0 var(--s-5);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--rule);
+}
+.section-block:first-of-type > h2 { margin-top: 0; }
+
+/* Page frame ------------------------------------------------------------- */
+
+.page {
+  display: flex;
+  gap: var(--gutter);
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-5) var(--s-8);
 }
 
-.sticky img {
-  display: block;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80%;
-}
+.content { flex: 1; min-width: 0; }
+.content > * + * { margin-top: 0; }
 
-.social {
-  /*float: left;*/
-  padding-bottom: 2em;
-  padding-top: 1em;
-  font-size: 1em;
-  display: inline-block;
-  overflow: visible;
-}
+/* Prose is capped independently of the column, so a wide element (a research
+   entry, a figure) can use the full track while text stays readable. */
+.prose { max-width: var(--measure-prose); }
+.prose p { margin: 0 0 var(--s-4); }
 
-.social a {
-  margin-right: 5px; /* 每个图标右边空10px */
-}
+/* Sidebar ---------------------------------------------------------------- */
 
 .sidebar {
-  /*float: left;*/
-  padding-bottom: 2em;
-  padding-top: 1em;
-  font-size: 1em;
+  width: var(--sidebar);
+  flex: 0 0 var(--sidebar);
+  position: sticky;
+  top: var(--s-8);
+  align-self: flex-start;
 }
 
-/******* Right side main content *******/
-
-/* Header and Footer and Image */
-img {
-  width: 100%;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.container-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
-header {
-  background: #f8f8f8;
-  padding: 0.5em 0;
-}
-
-footer {
-  background: #f8f8f8;
-  color: #707070;
-  text-align: center;
-  padding: 0.25em 0;
-}
-
-.footer-content {
-  font-size: 0.75rem;
-  margin: 0;
-}
-
-/* navigation (not used)*/
-
-nav ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  justify-content: center;
-}
-
-nav li {
-  margin-left: 2em;
-}
-
-nav a {
-  text-decoration: none;
-  color: #707070;
-  font-weight: 700;
-  padding: 0.25em 0;
-}
-
-nav a:hover,
-nav a:focus {
-  color: #6cace4;
-}
-
-/* current page does not make sense right now because only have one page */
-/* .current-page {
-    border-bottom: 1px solid #707070;
-  }
-  
-  .current-page:hover {
-    color: #707070;
-  } */
-
-/* Name card */
-
-.namecard {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5em;
-}
-
-.profile-img-col {
-  width: 40%;
-}
-
-.profile-img {
-  width: 80%;
-  /* this is needed for auto margin to work */
-  display: block;
-  margin: 1em auto;
-  border-radius: 0.25rem;
-  box-shadow:
-    0 2px 5px 0 rgb(0 0 0 / 16%),
-    0 2px 10px 0 rgb(0 0 0 / 12%);
-}
-
-.affiliations-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 60%;
-  text-align: center;
-}
-
-.affiliations-col p {
-  margin: 0 0 1em 0;
-}
-
-.affiliations-col h1 {
-  margin-bottom: 0;
-}
-
-@media (max-width: 875px) {
-  .namecard {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profile-img-col {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  .affiliations-col {
-    width: 100%;
-  }
-}
-
-/* News */
-.news ul,
-.misc ul,
-.teaching ul,
-.projects ul,
-.talks ul,
-.talks ul > ul {
-  padding-left: 1em;
-  line-height: 1.1;
-}
-
-/* Text alighnment and height adjustment: https://www.webucator.com/article/how-to-set-text-spacing-and-placement-in-css/ */
-/* .news ul li:not(:last-child),
-  .misc ul li:not(:last-child),
-  .teaching ul li:not(:last-child),
-  .projects ul li:not(:last-child),
-  .talks ul li:not(:last-child){
-    line-height: 0.5;
-  } */
-.namecard,
-.about,
-.research,
-.news,
-.teaching,
-.talks {
-  text-align: justify;
-}
-
-/* Show more or less Button for "news" */
-.collapse_container {
-  position: relative;
-  height: auto;
-  list-style-type: none;
-}
-
-[type="checkbox"] {
-  position: absolute;
-  left: -9999px;
-}
-
-[type="checkbox"] ~ ul {
-  display: none;
-}
-
-[type="checkbox"]:checked ~ ul {
-  display: block;
-}
-
-[type="checkbox"]:checked + label {
-  top: 100%;
-}
-
-[type="checkbox"]:checked + label:before {
-  content: "Less";
-}
-
-[type="checkbox"]:checked + label:after {
-  content: "⇡●";
-}
-
-label {
-  background: #f19b06;
-  display: block;
-  border-radius: 0.5em;
-  width: 15%;
-  height: 1.5em;
-  cursor: pointer;
-  position: absolute;
-  top: -10;
-  left: 2em;
-}
-
-label:before,
-label:after {
-  position: absolute;
-}
-
-label:before {
-  content: "More";
-  left: 10px;
-}
-
-label:after {
-  content: "⇣●";
-  right: 10px;
-  animation: sudo 0.85s linear infinite alternate;
-}
-
-@keyframes sudo {
-  from {
-    transform: translateY(-2px);
-  }
-  to {
-    transform: translateY(2px);
-  }
-}
-
-/* Publications */
-.publications ul {
-  padding-left: 0em;
-  list-style: none;
-}
-
-.publication-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 2.2em;
-}
-
-.publication-img-col {
-  width: 40%;
-  padding-right: 1.5em;
-}
-
-.publication-info-col {
-  width: 87%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.publication-title {
-  font-size: 1.2rem;
-}
-
-.publication-conference {
-  font-style: italic;
-}
-
-.publication-img {
-  width: 100%;
-  /* height: 130; */
-  border: none;
-  /* this is needed for auto margin to work */
-  display: block;
-  margin-right: 3em auto;
-  border-radius: 0.25rem;
-  box-shadow:
-    0 2px 5px 0 rgb(0 0 0 / 16%),
-    0 2px 10px 0 rgb(0 0 0 / 12%);
-}
-
-.publication-award {
-  color: red;
-}
-
-.year {
-  font-size: 1.5rem;
-}
-
-/* Research */
-.research-columns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.video-col {
-  width: 32%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Research */
-.research-columns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.video-col {
-  width: 32%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Research */
-.research-columns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.video-col {
-  width: 32%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Lifestyle */
-.lifestyle-columns {
-  display: flex;
-  justify-content: space-between;
-}
-
-.lifestyle-col {
-  width: 23%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
-.lifestyle-container {
-  position: relative;
-  padding-bottom: 120%;
-  height: 0;
-}
-
-/* Image fix: https://www.w3schools.com/css/css3_object-fit.asp */
-.lifestyle-img {
-  /* max-width:500px;
-    max-height: 300px; */
-  border: none;
-  /* this is needed for auto margin to work */
-  display: block;
-  margin-right: 3em auto;
-  border-radius: 0.25rem;
-  box-shadow:
-    0 2px 5px 0 rgb(0 0 0 / 16%),
-    0 2px 10px 0 rgb(0 0 0 / 12%);
+.sidebar-head { display: block; }
+.sidebar figure { margin: 0 0 var(--s-4); }
+.sidebar figure img {
+  width: 132px; height: 132px;
+  border-radius: 50%;
   object-fit: cover;
+  display: block;
 }
 
-.lifestyle-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.sidebar .name {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--duke);
+  line-height: 1.15;
+  margin: 0 0 var(--s-1);
+  letter-spacing: -0.01em;
+}
+.sidebar .name-cn {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--ink-muted);
+  display: block;
+  margin-top: 2px;
 }
 
-.caption {
-  text-align: center;
-  padding-bottom: 0.5em;
+.sidebar .role {
+  font-size: var(--text-sm);
+  line-height: var(--lh-ui);
+  color: var(--ink-muted);
+  margin: var(--s-3) 0 var(--s-4);
 }
 
-.caption_below {
-  text-align: center;
-  padding-top: 0.5em;
+.sidebar .details { font-size: var(--text-sm); margin-bottom: var(--s-4); }
+.sidebar .details p { margin: 0; }
+
+.social { display: flex; gap: var(--s-3); margin-bottom: var(--s-5); }
+.social a { color: var(--ink-muted); text-decoration: none; font-size: 1.15rem; }
+.social a:hover { color: var(--link); }
+
+/* Sidebar navigation. No scroll-spy: with the page this short, a highlight
+   that tracks the viewport tells the reader something they can already see. */
+.sidebar nav { border-top: 1px solid var(--rule); padding-top: var(--s-4); }
+.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
+.sidebar nav li + li { margin-top: var(--s-2); }
+.sidebar nav a {
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: var(--ink-muted);
 }
+.sidebar nav a:hover { color: var(--link); }
 
-.caption_below_lifestyle {
-  text-align: center;
-  font-size: 13;
-  font-style: italic;
+/* Name card -------------------------------------------------------------- */
+
+.namecard { margin-bottom: var(--s-6); }
+.namecard .profile-img-col { display: none; }   /* the sidebar carries the portrait */
+
+/* News ------------------------------------------------------------------- */
+
+.news ul { list-style: none; margin: 0; padding: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--s-4);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--text-sm);
+  line-height: var(--lh-ui);
 }
-
-.highlight {
-  background: #ffffdd;
-  /* font-family: monaco, monospace; */
+.news-body {
+  min-width: 0;              /* grid children default to min-width:auto, which a
+                                long unbroken link will happily blow past */
+  overflow-wrap: break-word;
 }
-
-/* Smaller scaling (e.g. half window or mobile device) adjustment; All changes are inheurited from original layerout*/
-@media (max-width: 769px) {
-  #sidebar_ {
-    background-color: aliceblue;
-    max-width: 100%;
-    border-radius: 1em;
-  }
-
-  .research-columns {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .news ul,
-  .misc ul,
-  .teaching ul,
-  .projects ul,
-  .talks ul,
-  .talks ul > ul {
-    padding-left: 0em;
-    margin-left: 1em;
-  }
-
-  .video-col {
-    width: 90%;
-  }
-
-  .publications ul {
-    padding-left: 0;
-    margin-left: 0;
-  }
-
-  .publication-img-col {
-    width: 70%;
-  }
-
-  .publication-title {
-    font-size: 1rem;
-  }
-  .publication-info-col {
-    font-size: 0.8rem;
-  }
-
-  .caption {
-    padding-bottom: 0.5em;
-  }
-
-  .caption_below {
-    padding-top: 0.5em;
-    padding-bottom: 0.7em;
-  }
-
-  .caption_below_lifestyle {
-    padding-top: -0.7em;
-    padding-bottom: 1em;
-  }
-
-  .lifestyle-columns {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .lifestyle-col {
-    width: 70%;
-  }
-
-  .sticky img {
-    max-width: 30%;
-  }
-
-  header {
-    text-align: center;
-  }
-
-  .collapse_container label {
-    left: 0;
-  }
-
-  .collapse_container label:before,
-  .collapse_container [type="checkbox"]:checked + label:before {
-    content: none;
-  }
-}
+.news-body > :first-child { margin-top: 0; }
+.news-body > :last-child { margin-bottom: 0; }
 
 .news-date {
-    color: #012169; /* Example: Duke Blue */
-    margin-right: 5px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 1px;
+}
+.emphasis { color: var(--accent); font-weight: 500; }
+
+/* Show-more. A checkbox and a label, no script. */
+.collapse_container input[type="checkbox"] { position: absolute; opacity: 0; pointer-events: none; }
+.collapse_container ul { max-height: 0; overflow: hidden; }
+.collapse_container input[type="checkbox"]:checked ~ ul { max-height: none; }
+.collapse_container label {
+  display: inline-block;
+  margin-top: var(--s-4);
+  font-size: var(--text-sm);
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--link) 35%, transparent);
+  text-underline-offset: 2px;
+}
+.collapse_container label::after { content: "Earlier news"; }
+.collapse_container input[type="checkbox"]:checked ~ label::after { content: "Show less"; }
+.collapse_container input[type="checkbox"]:focus-visible ~ label {
+  outline: 2px solid var(--duke); outline-offset: 2px;
+}
+
+/* Research entries ------------------------------------------------------- */
+
+.publications ul { list-style: none; margin: 0; padding: 0; }
+
+.publication-item {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: var(--s-5);
+  padding: var(--s-5) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.publication-item:last-child { border-bottom: 0; }
+
+.publication-img-col { width: auto; }
+.publication-img {
+  width: 168px;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+.publication-info-col { width: auto; min-width: 0; overflow-wrap: break-word; }
+
+.publication-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--s-2);
+}
+.publication-title a { color: var(--duke); text-decoration-color: var(--rule); }
+.publication-title a:hover { color: var(--link); }
+
+.publication-author {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  line-height: var(--lh-ui);
+  margin-bottom: var(--s-1);
+}
+.publication-author b { color: var(--ink); font-weight: 600; }
+
+.publication-conference {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+  line-height: var(--lh-ui);
+}
+
+.publication-link { margin-top: var(--s-2); font-size: var(--text-sm); }
+
+/* Service ---------------------------------------------------------------- */
+
+.teaching ul { margin: 0; padding-left: var(--s-5); }
+.teaching > ul > li { margin-bottom: var(--s-3); }
+.teaching ul ul { margin-top: var(--s-1); padding-left: var(--s-5); }
+.teaching ul ul li { margin-bottom: 2px; font-size: var(--text-sm); color: var(--ink-muted); }
+
+/* Footer ----------------------------------------------------------------- */
+
+.site-footer {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5) var(--s-8);
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .page { flex-direction: column; gap: var(--s-6); padding-top: var(--s-6); }
+
+  /* Plain block flow, not a grid. A two-column grid here put the contact
+     details and the icon row into cells that overlapped. */
+  .sidebar {
+    width: 100%; flex: none; position: static;
+    padding-bottom: var(--s-5);
+    border-bottom: 1px solid var(--rule);
+  }
+  .sidebar-head { display: flex; align-items: center; gap: var(--s-4); }
+  .sidebar figure { margin: 0; flex: 0 0 auto; }
+  .sidebar figure img { width: 88px; height: 88px; }
+  .sidebar .name { font-size: 1.5rem; }
+  .sidebar .name-cn { display: inline; margin-left: var(--s-2); }
+  .sidebar .role { margin: var(--s-1) 0 0; }
+
+  .sidebar .details { margin: var(--s-4) 0 var(--s-2); }
+  .social { margin-bottom: var(--s-3); }
+
+  .sidebar nav { border-top: 0; padding-top: 0; }
+  .sidebar nav ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+  .sidebar nav li + li { margin-top: 0; }
+
+  .publication-item { grid-template-columns: 120px 1fr; gap: var(--s-4); }
+  .publication-img { width: 120px; }
+}
+
+@media (max-width: 560px) {
+  .news li { grid-template-columns: 1fr; gap: var(--s-1); }
+  .publication-item { grid-template-columns: 1fr; }
+  .publication-img { width: 100%; aspect-ratio: 16 / 9; }
 }

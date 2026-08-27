@@ -1,10 +1,11 @@
 <!-- How to do a show more/less bar: https://codepen.io/srekoble/pen/WGBzea?editors=1100 -->
-<div class="news" , id="news">
-  <h1>News</h1>
+<section class="section-block news" id="news">
+  <h2>News</h2>
   <ul>
     {%- for n in site.data.news %}{%- unless n.collapsed %}
     <li>
-      <strong class="news-date">{{ n.label }}</strong> {{ n.body }}
+      <strong class="news-date">{{ n.label }}</strong>
+      <div class="news-body">{{ n.body }}</div>
     </li>
     {%- endunless %}{%- endfor %}
   </ul>
@@ -15,10 +16,11 @@
     <ul>
       {%- for n in site.data.news %}{%- if n.collapsed %}
       <li>
-        <strong class="news-date">{{ n.label }}</strong> {{ n.body }}
+        <strong class="news-date">{{ n.label }}</strong>
+      <div class="news-body">{{ n.body }}</div>
       </li>
       {%- endif %}{%- endfor %}
       <!-- more list items here -->
     </ul>
   </div>
-</div>
+</section>

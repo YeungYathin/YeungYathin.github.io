@@ -1,13 +1,4 @@
-    <footer>
-      <div class="container">
-        <p class="footer-content">
-          Copyright © 2026 Yixuan Yang. All rights reserved.
-        </p>
-      </div>
-    </footer>
-    <script>
-      var elm = document.querySelector("#sidebar");
-      var ms = new MenuSpy(elm, {
-        activeClass: "is-active",
-      });
-    </script>
+<footer class="site-footer">
+  © {{ site.time | date: "%Y" }} Yixuan Yang ·
+  <a href="https://scholar.google.com/citations?user=U97wn_wAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+</footer>

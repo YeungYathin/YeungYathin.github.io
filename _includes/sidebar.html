@@ -1,30 +1,33 @@
-<div class="column is-2" id="sidebar_">
-  <div class="sticky">
+<aside class="sidebar">
+  <div class="sidebar-head">
     <figure>
-      <img src="{{ site.data.profile.avatar }}" alt="{{ site.data.profile.avatar_alt }}" />
+      <img src="{{ site.data.profile.avatar }}" alt="{{ site.data.profile.avatar_alt }}"
+           width="132" height="132" />
     </figure>
-    <br />
-    <div class="content">
-      <p class="subtitle">{{ site.data.profile.subtitle }}</p>
-    </div>
-    <div class="details">
-      {%- for e in site.data.profile.emails %}
-      <p><a href="mailto:{{ e }}">{{ e }}</a></p>
-      {%- endfor %}
-    </div>
-    <div class="social">
-      {%- for s in site.data.profile.socials %}
-      <a href="{{ s.url }}" target="_blank"><i class="{{ s.icon }}"></i></a>
-      {%- endfor %}
-    </div>
-    <!-- is-hidden-mobile -->
-    <div id="sidebar" class="menu sticky">
-      <p class="menu-label"><b>Quick Links</b></p>
-      <ul class="menu-list">
-        {%- for n in site.data.nav %}
-        <li><a href="#{{ n.anchor }}"{% if n.active %} class="is-active"{% endif %}>{{ n.label }}</a></li>
-        {%- endfor %}
-      </ul>
+
+    <div>
+      <h1 class="name">{{ site.data.profile.name }}<span class="name-cn">{{ site.data.profile.name_cn }}</span></h1>
+      <p class="role">{{ site.data.profile.role }}</p>
     </div>
   </div>
-</div>
+
+  <div class="details">
+    {%- for e in site.data.profile.emails %}
+    <p><a href="mailto:{{ e }}">{{ e }}</a></p>
+    {%- endfor %}
+  </div>
+
+  <div class="social">
+    {%- for s in site.data.profile.socials %}
+    <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.label }}"><i class="{{ s.icon }}" aria-hidden="true"></i></a>
+    {%- endfor %}
+  </div>
+
+  <nav aria-label="Sections">
+    <ul>
+      {%- for n in site.data.nav %}
+      <li><a href="#{{ n.anchor }}">{{ n.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</aside>

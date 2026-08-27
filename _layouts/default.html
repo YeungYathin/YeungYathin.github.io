@@ -5,25 +5,13 @@
   </head>
 
   <body>
-    <header>
-      <div class="container">
-        <p class="footer-content">Welcome! This is Yixuan Yang's Homepage.</p>
-      </div>
-    </header>
-
-    <section class="section">
-      <div class="container">
-        <div class="columns">
+    <div class="page">
 {% include sidebar.html %}
 
-          <div class="column">
-            <div class="content">
+      <main class="content">
 {{ content }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </main>
+    </div>
 
 {% include footer.html %}
   </body>
