@@ -13,6 +13,7 @@
     alt: 'Two examples of unsolvable robot tasks: replacing a centrepiece with flowers when none are available,
       and keeping a window both open and closed.'
   title: Unsolvable Robotic Task Detection Using Synthetic Data Driven By LLM (LLaVA)
+  title_url: assets/docs/ECE_590_project_report.pdf
   authors: 'Final Project: Duke ECE 590/ME 555 - Robot Learning (2024 Fall)<br />'
   venue: Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor Boyuan Chen</a
     >.

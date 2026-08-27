@@ -133,13 +133,15 @@ h1, h2, h3 {
   justify-content: space-between;
   gap: var(--s-5);
 }
-/* Deliberately quieter than the sidebar name. Same face, same colour and the
-   same weight made the bar read as a second title rather than as a way home. */
+/* Distinct from the sidebar name by face and scale, not by being faded: the
+   sidebar sets the name in serif at 34px, this sets it in sans at 15 with
+   tracking, so the two read as different objects while sharing the navy. */
 .wordmark {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--ink-muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--duke);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -150,10 +152,13 @@ h1, h2, h3 {
 }
 .topbar nav a {
   font-size: var(--text-sm);
-  color: var(--ink-muted);
+  font-weight: 500;
+  color: var(--ink);
   text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
-.topbar nav a:hover { color: var(--link); }
+.topbar nav a:hover { color: var(--duke); border-bottom-color: var(--duke); }
 
 /* Page frame ------------------------------------------------------------- */
 
