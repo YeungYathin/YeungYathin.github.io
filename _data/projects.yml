@@ -5,7 +5,7 @@
   media:
     type: image
     src: assets/img/ECE_685.gif
-    alt: ''
+    alt: 'Animated sample from the text-to-image model: a polar bear standing on rock, generated from a text prompt.'
   title: Text-to-Image Generation with Conditional VAEs and CLIP Embeddings
   authors: 'Final Project: Duke ECE 685 - Introduction to Deep Learning (2024 Fall)<br />'
   venue: Advised by <a href="https://ece.duke.edu/people/vahid-tarokh/" target="_blank" >Rhodes Family
@@ -19,7 +19,7 @@
   media:
     type: image
     src: assets/img/ECE590.jpeg
-    alt: ''
+    alt: 'Two examples of unsolvable robot tasks: replacing a centrepiece with flowers when none are available, and keeping a window both open and closed.'
   title: Unsolvable Robotic Task Detection Using Synthetic Data Driven By LLM (LLaVA)
   authors: 'Final Project: Duke ECE 590/ME 555 - Robot Learning (2024 Fall)<br />'
   venue: Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor Boyuan Chen</a
@@ -33,7 +33,7 @@
   media:
     type: image
     src: assets/img/CS102A-Minesweeper.jpg
-    alt: ''
+    alt: 'Screenshot of the Minesweeper++ Java Swing interface.'
   title: 'Minesweeper++: A Feature-Rich Game Development with Java Swing GUI'
   authors: 'Final Project: SUSTech CS102A - Introduction to Computer Programming (Language: Java) (2021
     Spring)<br />'

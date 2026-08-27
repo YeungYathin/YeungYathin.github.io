@@ -1,6 +1,7 @@
 # Identity and contact details shown in the sidebar.
 
 avatar: assets/img/yixuan.jpeg
+avatar_alt: "Yixuan Yang"
 subtitle: "Hi there! 🎾"
 
 emails:

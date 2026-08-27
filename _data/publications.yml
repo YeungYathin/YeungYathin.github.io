@@ -9,7 +9,7 @@
   media:
     type: image
     src: assets/img/Clin-JEPA-main-figure.png?v=2
-    alt: ''
+    alt: 'Clin-JEPA framework diagram: a shared encoder and a latent trajectory predictor over EHR patient state and action text.'
   title: 'Clin-JEPA: A Multi-Phase Co-Training Framework for Joint-Embedding Predictive Pretraining on
     EHR Patient Trajectories'
   title_url: https://arxiv.org/abs/2605.10840
@@ -38,7 +38,7 @@
   media:
     type: image
     src: assets/img/sniffysquad.png
-    alt: ''
+    alt: 'SniffySquad system figure: multiple ground robots cooperating to localise a gas source in a patchy plume.'
   title: 'SniffySquad: Patchiness-Aware Gas Source Localization with Multi-Robot Collaboration'
   title_url: https://arxiv.org/abs/2411.06121
   authors: Yuhan Cheng*, Xuecheng Chen*, <b>Yixuan Yang</b>, Haoyang Wang, Jingao Xu, Chaopeng Hong, Susu
@@ -65,7 +65,7 @@
   media:
     type: image
     src: assets/img/UFLP.png
-    alt: ''
+    alt: 'Diagram of the learning-based problem reduction pipeline for large-scale uncapacitated facility location.'
   title: Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems
   title_url: https://ieeexplore.ieee.org/abstract/document/10611785
   authors: Shuaixiang Zhang, <b>Yixuan Yang</b>, Hao Tong, Xin Yao
