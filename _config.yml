@@ -1,0 +1,24 @@
+title: "Yixuan Yang | 杨一轩"
+url: "https://yixuanyang.com"
+
+# Files that are part of the repository but not part of the published site.
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - cv                 # a nested git clone of the Overleaf project
+  - vendor
+  - "*.zip"
+
+# Jekyll would otherwise skip these, and assets/papers is content.
+include:
+  - assets
+
+# Leave markdown alone; every page here is hand-written HTML for now.
+markdown: kramdown
+
+# No theme. Every layout and include in this repo is hand-written, so the
+# default (jekyll-theme-primer) would only emit an unreferenced 136 KB
+# stylesheet into the build.
+theme:

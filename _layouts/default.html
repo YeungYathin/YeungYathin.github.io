@@ -1,0 +1,29 @@
+<html>
+  <head>
+{% include head.html %}
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <p class="footer-content">Welcome! This is Yixuan Yang's Homepage.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+{% include sidebar.html %}
+
+          <div class="column">
+            <div class="content">
+{{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% include footer.html %}
+  </body>
+</html>
