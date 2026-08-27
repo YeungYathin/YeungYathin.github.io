@@ -38,4 +38,9 @@
     <a href="https://www.tsinghua.edu.cn/en/" target="_blank">Tsinghua University</a>
     as a visiting student.
   </p>
+
+  <p class="interests">
+    <span class="interests-label">Research interests</span>
+    {%- for i in site.data.profile.interests %}{% unless forloop.first %} <span class="sep">·</span>{% endunless %} {{ i }}{% endfor %}
+  </p>
 </section>

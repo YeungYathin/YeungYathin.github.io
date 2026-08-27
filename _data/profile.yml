@@ -32,3 +32,11 @@ socials:
   - label: CV
     url: assets/docs/Yixuan_Yang_CV.pdf
     icon: fa-sharp fa-solid fa-file-pdf svg-inline--fa fa-w-16 fa-2x
+
+# Lifted verbatim from the CV. Three methodological terms, then one that names
+# both application domains with embodied first: the ordering is the positioning.
+interests:
+  - World Models & Latent Dynamics
+  - Self-Supervised Representation Learning
+  - Sequential Decision-Making under Uncertainty
+  - Embodied & Clinical Foundation Models
