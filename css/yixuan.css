@@ -928,6 +928,10 @@ h1, h2, h3 {
   .sidebar nav li + li { margin-top: 0; }
 }
 
+/* The tail portrait exists only for narrow screens; the masthead carries it
+   everywhere else. */
+.portrait-tail { display: none; }
+
 /* Phones -------------------------------------------------------------------
    Below 700px the rail stops being a rail. Stacked in source order it put the
    contact block and a section list above everything, so the page opened on
@@ -968,6 +972,23 @@ h1, h2, h3 {
   .sidebar nav { display: none; }
 
   .masthead-portrait { display: none; }
+
+  /* It moves to the foot of the page rather than disappearing: at the top it
+     was a second photograph of the same person a few hundred pixels under the
+     avatar, at the bottom it closes the page. */
+  .portrait-tail {
+    display: block;
+    margin: var(--s-7) 0 0;
+    padding-top: var(--s-6);
+    border-top: 1px solid var(--rule);
+  }
+  .portrait-tail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+  }
   .masthead { flex-direction: column; align-items: flex-start; gap: 0; margin-bottom: var(--s-6); }
 
   .topbar-inner {
