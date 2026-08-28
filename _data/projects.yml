@@ -9,16 +9,23 @@
 - slug: unsolvable-tasks
   media:
     type: image
-    src: assets/img/ECE590.jpeg
-    alt: 'Two examples of unsolvable robot tasks: replacing a centrepiece with flowers when none are available,
-      and keeping a window both open and closed.'
-  title: Unsolvable Robotic Task Detection Using Synthetic Data Driven By LLM (LLaVA)
-  title_url: assets/docs/ECE_590_project_report.pdf
-  authors: 'Final Project: Duke ECE 590/ME 555 - Robot Learning (2024 Fall)<br />'
-  venue: Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor Boyuan Chen</a
-    >.
+    src: assets/img/say-no-pipeline.webp
+    alt: 'Figure titled Learning to Say No, showing five kinds of unsolvable task -- status conflict,
+      item absence, logical contradiction, ambiguity and ethical constraint -- feeding a synthetic
+      data pipeline and a vision-language model that answers "I can''t safely do that."'
+  title: 'Learning to Say No: Unsolvable Robotic Task Detection Using Synthetic Data Driven by LLaVA'
+  title_url: assets/docs/learning-to-say-no-ece590-2024.pdf
+  # Deliberately no author line. The report names Yixuan Yang and Yueqian Lin,
+  # but Yueqian did the larger share, and a two-name line led by Yixuan on his
+  # own site would read as a claim about who drove it. The entry stands on the
+  # work; the report itself is one click away and carries both names.
+  venue: 'Final project, Duke ECE 590 / ME 555: Robot Learning (Fall 2024)<br />'
   links:
   - label: Paper
-    url: assets/docs/ECE_590_project_report.pdf
+    url: assets/docs/learning-to-say-no-ece590-2024.pdf
   - label: Github
     url: https://github.com/linyueqian/ME555_Final_Project
+  summary: 'Robots asked to do something impossible tend to try anyway. This builds a synthetic dataset
+    of five ways a task can be unsolvable, from a missing item to an ethical refusal, then fine-tunes
+    a vision-language model to spot them and say why. Refusal accuracy goes from 10% to 78% on the
+    generated images, and 81% in Habitat-Sim, a renderer it never trained on.'

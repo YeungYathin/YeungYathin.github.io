@@ -4,12 +4,22 @@
 # bolds the owner's name, `venue` ends in <br />, `extra` lines carry links.
 # `slug` becomes the element id. It replaces six copies of a single
 # copy-pasted id that came from a template card for someone else's paper.
+#
+# `badge` is the short venue mark above the figure, so the list can be skimmed
+# by venue without reading a line of it. Only entries that actually appeared
+# somewhere carry one. `badge_tone` splits those two ways and the split is the
+# point: `venue` is peer-reviewed and gets the solid navy chip, `preprint` gets
+# the outlined one, because a preprint styled like a proceedings entry claims a
+# review that has not happened.
 
 - slug: clin-jepa
+  badge: arXiv
+  badge_tone: preprint
   media:
     type: image
-    src: assets/img/Clin-JEPA-main-figure.webp
-    alt: 'Clin-JEPA framework diagram: a shared encoder and a latent trajectory predictor over EHR patient state and action text.'
+    src: assets/img/clin-jepa-framework.webp
+    alt: 'Clin-JEPA framework diagram: a shared encoder and a latent trajectory predictor over EHR patient
+      state and action text.'
   title: 'Clin-JEPA: A Multi-Phase Co-Training Framework for Joint-Embedding Predictive Pretraining on
     EHR Patient Trajectories'
   title_url: https://arxiv.org/abs/2605.10840
@@ -23,35 +33,116 @@
     download: true
   - label: Code
     url: https://github.com/Kamaleswaran-Lab/Clin-JEPA
+  summary: 'Every JEPA before this one either discards the predictor or trains it on a frozen encoder,
+    so the encoder never learns to support the rollout it will be asked for. Clin-JEPA co-trains them,
+    and the representation spreads out: 55% more effective dimensions, variance no longer piled into
+    a handful of them. Freeze that same encoder, train a predictor the ordinary way, and long-horizon
+    accuracy falls below doing nothing.'
 - slug: humanoid-manipulation
+  # Three stills rather than one: the work spans a simulator and a bench, and no
+  # single frame says that. They cross-fade in place, so the row never reflows.
   media:
-    type: video
-    src: assets/video/unitree_g1.mp4
+    type: slideshow
+    frames:
+    - src: assets/img/humanoid-sim-knob.webp
+      alt: The Unitree G1's hand closing on a knob mounted to a panel in Isaac Gym.
+    # Seven seconds, cropped free of the Isaac Gym window chrome, and held for
+    # its full length: a shorter window cut off before the knob finished
+    # turning, which is the one thing this frame exists to show. The red index
+    # line on the knob is what makes the rotation legible at thumbnail size.
+    - type: video
+      src: assets/video/humanoid-knob-turn.mp4
+      dwell: 7000
+      alt: A close view of the G1's hand gripping a cylindrical knob and rotating it, the red index
+        line on the knob turning with it.
+    - src: assets/img/humanoid-sim-parallel.webp
+      alt: Many copies of the same reaching task training in parallel in Isaac Gym, the goal marked
+        by a yellow wireframe sphere.
+    - src: assets/img/humanoid-learning-kit.webp
+      alt: The physical learning kit, a plywood box carrying knobs, switches, buttons and a readout
+        screen, on a bench in the General Robotics Lab.
+    # Last, and the only one that moves. Portrait 540x960 in a 4:3 slot, so it
+    # is cropped high rather than centred: a centre crop of a standing robot
+    # keeps the torso and loses the head and the feet.
+    - type: video
+      src: assets/video/humanoid-walking.mp4
+      dwell: 4000
+      alt: The Unitree G1 walking in its gantry in the General Robotics Lab.
+  # Each opens in a player over the page. Ordered as the work went: one knob and
+  # two controllers, then three knob geometries, then the bench the whole thing
+  # was built around.
+  #
+  # `ratio` is the encoded frame shape, read off the file. The player is sized
+  # by height, so without it the box would open at the browser's 2:1 default
+  # and snap to shape once metadata arrived -- very visible on the portrait
+  # clip, which is 9:16. Re-encode a clip, re-read its ratio.
+  videos:
+  - label: Heuristic
+    title: 'Smooth cylindrical knob: scripted controller'
+    src: assets/video/humanoid-heuristic.mp4
+    ratio: 1280 / 704
+  - label: RL policy
+    title: 'Smooth cylindrical knob: learned policy'
+    src: assets/video/humanoid-rl.mp4
+    ratio: 1280 / 744
+  - label: Knob 1
+    title: 'Knob geometry 1'
+    src: assets/video/humanoid-knob-1.mp4
+    ratio: 1280 / 722
+  - label: Knob 2
+    title: 'Knob geometry 2'
+    src: assets/video/humanoid-knob-2.mp4
+    ratio: 1280 / 722
+  - label: Knob 3
+    title: 'Knob geometry 3'
+    src: assets/video/humanoid-knob-3.mp4
+    ratio: 1280 / 722
+  - label: Learning kit
+    title: The physical instrument panel
+    src: assets/video/learning-kit.mp4
+    ratio: 720 / 1280
   title: Contact-Rich Humanoid Manipulation for Scientific Laboratory Automation
-  authors: <b>Yixuan Yang</b>. Advised by <a href="http://boyuanchen.com/index.html" target="_blank" >Professor
+  authors: <b>Yixuan Yang</b>. Advised by <a href="https://boyuanchen.com/index.html" target="_blank" >Professor
     Boyuan Chen</a >
-  venue: General Robotics Lab, Duke University (Aug. 2024 -- Mar. 2025)<br />
-  extra:
-  - <b>Keywords:</b> Humanoid Robot, <a href="https://www.unitree.com/g1" target="_blank" >Unitree G1</a
-    >, NVIDIA Isaac Gym, Deep Reinforcement Learning, Contact-Rich Manipulation<br />
+  venue: General Robotics Lab, Duke University (Aug. 2024 – Mar. 2025)<br />
+  # Bounded by what the work actually covered: a platform and a task stack
+  # trained in simulation. No sim-to-real transfer and no imitation learning
+  # were part of it, and neither is claimed here.
+  summary: 'Laboratory instruments are built for human hands: knobs, switches, small buttons. This project
+    put a <a href="https://www.unitree.com/g1" target="_blank">Unitree G1</a> humanoid in front of one, pairing a physical testbed with a dimension-matched replica
+    in Isaac Gym. Most of the work was the task stack itself: an inverse-kinematics control interface,
+    fingertip contact sensing, and the reward and termination design that gets PPO to learn contact-rich
+    motion rather than flail near it.'
 - slug: sniffysquad
+  badge: ACM TOSN
+  badge_tone: venue
   media:
     type: image
-    src: assets/img/sniffysquad.webp
-    alt: 'SniffySquad system figure: multiple ground robots cooperating to localise a gas source in a patchy plume.'
+    src: assets/img/sniffysquad-testbed.webp
+    alt: 'SniffySquad system figure: multiple ground robots cooperating to localise a gas source in a
+      patchy plume.'
   title: 'SniffySquad: Patchiness-Aware Gas Source Localization with Multi-Robot Collaboration'
   title_url: https://arxiv.org/abs/2411.06121
   authors: Yuhan Cheng*, Xuecheng Chen*, <b>Yixuan Yang</b>, Haoyang Wang, Jingao Xu, Chaopeng Hong, Susu
     Xu, Xiao-Ping Zhang, Yunhao Liu, Xinlei Chen
-  venue: 'ACM Transactions on Sensor Networks (Jan, 2026) (DOI: 10.1145/3786599)<br />'
+  venue: 'ACM Transactions on Sensor Networks (Feb 2026) (DOI: 10.1145/3786599)<br />'
   links:
   - label: Paper
     url: https://dl.acm.org/doi/10.1145/3786599
     download: true
+  summary: 'Turbulence tears a gas plume into patches, and every patch can look like the source. So
+    SniffySquad stops climbing the gradient and starts sampling: each robot is a Langevin chain on a
+    shared belief map, and its temperature is its role. Hot robots roam, cold robots inspect, and the
+    two trade places by the same acceptance rule parallel tempering uses. Success rate up 20%, path
+    efficiency up 30%.'
 - slug: olfactory-sensing
+  badge: HotMobile
+  badge_tone: venue
   media:
     type: video
     src: assets/video/olfactory.mp4
+    poster: assets/img/olfactory-poster.webp
+    alt: Ground robots with coloured markers tracking a smoke plume across a darkened testbed.
   title: Olfactory Sensing in Turbulent Airflow via Collaborative Robots
   title_url: https://dl.acm.org/doi/abs/10.1145/3638550.3643049
   authors: Yuhan Cheng*, Xuecheng Chen*, <b>Yixuan Yang</b>, Haoyang Wang, Yuxuan Liu, Xinlei Chen
@@ -61,11 +152,20 @@
   - label: Paper
     url: https://dl.acm.org/doi/abs/10.1145/3638550.3643049
     download: true
+  summary: 'Turbulence scatters a gas plume into patches, so following the concentration gradient
+    walks a robot into a decoy. This early poster gives a robot team heterogeneous roles: some inspect
+    the strongest reading found so far, others keep hunting for new candidates, and the roles are
+    exchanged as the readings change. Search time fell 37% against Surge-Cast and 22% against Infotaxis,
+    which gets trapped in exactly those patches.'
 - slug: uflp
+  badge: IEEE CEC
+  badge_tone: venue
   media:
     type: image
-    src: assets/img/UFLP.webp
-    alt: 'Diagram of the learning-based problem reduction pipeline for large-scale uncapacitated facility location.'
+    src: assets/img/uflp-pipeline.webp
+    alt: 'Six-stage pipeline: a large facility-location instance, small instances used as training
+      data, cost and rank matrices compressed to four statistics per facility, a network predicting
+      each facility''s open probability, the pruned instance, and a faster-converging search on it.'
   title: Learning-Based Problem Reduction for Large-Scale Uncapacitated Facility Location Problems
   title_url: https://ieeexplore.ieee.org/abstract/document/10611785
   authors: Shuaixiang Zhang, <b>Yixuan Yang</b>, Hao Tong, Xin Yao
@@ -74,3 +174,8 @@
   - label: Paper
     url: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10611785
     download: true
+  summary: 'Facility location at scale defeats search heuristics, so this shrinks the problem before
+    solving it. The trick is to look at ranks rather than costs: each facility is described by the shape
+    of its rank distribution across customers, so the same four numbers describe it whether the instance
+    holds fifty sites or five thousand. That scale-free footing is why a model trained on instances a
+    solver can crack exactly transfers to ones it cannot, cutting benchmarks to 13% of their size.'
