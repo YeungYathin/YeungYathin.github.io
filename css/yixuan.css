@@ -926,17 +926,83 @@ h1, h2, h3 {
   :root { --figure: 168px; }
   .publication-item { gap: var(--s-4); }
 
-  /* Wordmark on its own line, then one row of tools: the search field takes
-     whatever the nav and the toggle leave. */
-  .topbar-inner { flex-direction: column; align-items: stretch; gap: var(--s-3); }
-  .topbar-tools { width: 100%; justify-content: space-between; gap: var(--s-3); }
-  .search { flex: 1 1 auto; width: auto; min-width: 0; }
-  .search-results { width: 100%; max-width: none; }
+  /* One row all the way down. Between 700 and 1000px there is room for it, and
+     stacking the bar here only cost vertical space on tablets. */
+  .topbar-tools { gap: var(--s-4); }
+  .search { width: 150px; }
+  .search-results { right: 0; width: min(360px, calc(100vw - 2 * var(--s-5))); max-width: none; }
   .site-footer { justify-content: center; text-align: center; }
 
   .sidebar nav { border-top: 0; padding-top: 0; margin-top: var(--s-2); }
   .sidebar nav ul { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
   .sidebar nav li + li { margin-top: 0; }
+}
+
+/* Phones -------------------------------------------------------------------
+   Below 700px the rail stops being a rail. Stacked in source order it put the
+   contact block and a section list above everything, so the page opened on
+   an address and the name did not appear until 527px down a 844px screen,
+   with the first sentence of prose at 869px -- an entire screen before any
+   content. Reordering is the whole fix: masthead first, then the prose, then
+   what is left of the rail as a footer.
+
+   The top bar was three rows tall for the same reason: a wordmark row, a tools
+   row, and the page links wrapping onto a second line inside it. One row now,
+   with the search field collapsed to its own icon until it is touched. */
+
+@media (max-width: 700px) {
+  .page { flex-direction: column; gap: var(--s-6); }
+  .content { order: 1; }
+  .sidebar { order: 2; }
+
+  /* The masthead portrait is right there; the rail's avatar would be the same
+     person twice, and the section links would sit below the sections. */
+  .sidebar { border-top: 1px solid var(--rule); border-bottom: 0; padding: var(--s-5) 0 0; }
+  .sidebar-head { display: none; }
+  .sidebar nav { display: none; }
+  .contact { margin: 0 0 var(--s-4); }
+
+  .topbar-inner {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: var(--s-3);
+    padding: var(--s-3) var(--s-4);
+  }
+  .topbar-tools { gap: var(--s-3); flex: 0 1 auto; min-width: 0; }
+  .wordmark { font-size: var(--text-sm); flex: 0 0 auto; }
+  .topbar nav ul { flex-wrap: nowrap; gap: var(--s-3); }
+  .topbar nav a { font-size: var(--text-xs); }
+
+  /* Collapsed to the width of its own icon, opening on touch. Keeping the full
+     field would have cost the row it was meant to save. */
+  .search { width: 40px; flex: 0 0 auto; transition: width 0.18s ease; }
+  .search:focus-within { width: min(240px, 48vw); }
+  /* The row is already full, so the field cannot grow into it: the page links
+     stand down while it is open. Without this the box expands by a few pixels
+     and shows a truncated placeholder, which looks like a bug rather than a
+     control. */
+  .topbar-tools:focus-within nav { display: none; }
+  /* Collapsed it is an icon, not a field: without this the placeholder shows
+     through as a truncated "Sea", which reads as a rendering fault. */
+  .search:not(:focus-within) .search-input::placeholder { opacity: 0; }
+  .search-input { padding: 6px 8px 6px 30px; }
+  .search-icon { left: 9px; }
+  .search-hint { display: none; }
+  .search + .theme-toggle { margin-left: 0; }
+  .theme-toggle { width: 34px; height: 34px; }
+  .search-results { right: 0; width: calc(100vw - 2 * var(--s-4)); max-width: none; }
+}
+
+/* Very small phones. At 320px the four controls in the bar overflow by 24px,
+   and there is no trimming that recovers it: the search field stands down,
+   being the only one of the four that is not navigation or identity. */
+@media (max-width: 380px) {
+  .topbar-inner { gap: var(--s-2); padding-inline: var(--s-3); }
+  .topbar-tools { gap: var(--s-2); }
+  .search { display: none; }
+  .search + .theme-toggle { margin-left: 0; }
+  .topbar nav ul { gap: var(--s-2); }
 }
 
 @media (max-width: 560px) {
