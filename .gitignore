@@ -11,3 +11,6 @@ _site/
 .jekyll-cache/
 vendor/
 .bundle/
+
+# Camera and capture originals: kept on disk, never committed or served
+media-src/
