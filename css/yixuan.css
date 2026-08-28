@@ -997,7 +997,9 @@ h1, h2, h3 {
   .search-input { padding: 6px 8px 6px 30px; }
   .search-icon { left: 9px; }
   .search-hint { display: none; }
-  .search + .theme-toggle { margin-left: 0; }
+  /* The toggle belongs to the field, not to the navigation: a row gap between
+     them read as three separate controls rather than two and a group. */
+  .search + .theme-toggle { margin-left: calc(var(--s-1) - var(--s-3)); }
   .theme-toggle { width: 34px; height: 34px; }
   /* Fixed to the viewport, not to the field. Anchored to the field at this
      width a 100vw panel ran off the left edge, the field itself being at the
