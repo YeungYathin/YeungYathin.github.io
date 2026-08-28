@@ -9,17 +9,3 @@ anchors: true
 {% include section-news.html %}
 
 {% include section-publications.html %}
-
-{%- comment -%}
-The masthead portrait again, for phones only. It cannot simply be moved: CSS
-reorders siblings, and the masthead copy is nested inside the masthead, so on a
-narrow screen there is no way to send it to the end of the page from there. A
-second element is the honest fix; it is the same URL, so it costs a cache hit
-rather than a download, and each copy is hidden at the width where the other
-shows.
-{%- endcomment -%}
-<figure class="portrait-tail">
-  <img src="{{ site.data.profile.portrait | relative_url }}"
-       alt="{{ site.data.profile.portrait_alt }}"
-       width="961" height="1000" loading="lazy" />
-</figure>
