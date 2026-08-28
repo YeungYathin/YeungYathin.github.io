@@ -1,39 +1,111 @@
 {%- comment -%}
 One research or project card. Expects `card` (a record from _data/publications.yml
 or _data/projects.yml). Fields holding raw HTML are emitted unescaped on purpose.
+
+A card with a summary is openable: the whole tile is the hit target, handled in
+js/site.js, which skips clicks that landed on a real link. Cards without a
+summary stay inert, so the cursor never promises something that will not happen.
 {%- endcomment -%}
 <ul>
-  <li class="publication-item" id="{{ card.slug }}">
+  <li class="publication-item{% if card.summary %} is-openable{% endif %}" id="{{ card.slug }}">
     <div class="publication-img-col">
-      {%- if card.media.type == "video" %}
+      {%- comment -%}
+      The venue mark rides on the figure rather than in the text, which is what
+      lets the list be skimmed by venue: five chips down the left margin read
+      faster than five italic lines buried under five titles.
+      {%- endcomment -%}
+      {%- if card.badge %}
+      <span class="venue-badge is-{{ card.badge_tone | default: 'venue' }}">{{ card.badge }}</span>
+      {%- endif %}
+      {%- if card.media.type == "slideshow" %}
+      {%- comment -%}
+      Every frame is in the DOM with its own alt text, so the content is there
+      for a reader who never sees the rotation. js/site.js drives the class;
+      with no script, or with reduced motion asked for, the first frame simply
+      stays put.
+      {%- endcomment -%}
+      <div class="publication-img slideshow" data-slideshow>
+        {%- for f in card.media.frames %}
+        {%- if f.type == "video" %}
+        <video src="{{ f.src | relative_url }}" muted loop playsinline preload="none"
+               {% if f.dwell %}data-dwell="{{ f.dwell }}" {% endif %}aria-label="{{ f.alt }}"{% if forloop.first %} class="is-active"{% endif %}></video>
+        {%- else %}
+        <img src="{{ f.src | relative_url }}" alt="{{ f.alt }}"{% if forloop.first %} class="is-active"{% endif %} />
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      {%- elsif card.media.type == "video" %}
+      {%- comment -%}
+      No `autoplay` attribute. Chrome refused it here -- measured readyState 4,
+      no error, paused true -- and with nothing painted the slot was simply
+      white. js/site.js starts it when the card reaches the viewport instead,
+      which also means the clip is not fetched at all for a reader who never
+      scrolls this far. The poster is what stands in until then, and what stands
+      in permanently if the script never runs.
+      {%- endcomment -%}
       <video
         class="publication-img"
-        autoplay
+        data-autoplay
         loop
         muted
         playsinline
-        preload="metadata"
+        preload="none"
+        {%- if card.media.poster %}
+        poster="{{ card.media.poster | relative_url }}"
+        {%- endif %}
+        {%- if card.media.alt %}
+        aria-label="{{ card.media.alt }}"
+        {%- endif %}
         src="{{ card.media.src | relative_url }}"
       ></video>
       {%- else %}
       <img class="publication-img" src="{{ card.media.src | relative_url }}" alt="{{ card.media.alt }}" />
       {%- endif %}
+
     </div>
     <div class="publication-info-col">
       <div class="publication-title">
         <b>{% if card.title_url %}<a href="{{ card.title_url | relative_url }}" target="_blank">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</b>
       </div>
+      {%- if card.authors %}
       <div class="publication-author">{{ card.authors }}</div>
-      <div class="publication-conference">{{ card.venue }}</div>
-      {%- for line in card.extra %}
-      <div class="publication-conference">{{ line }}</div>
-      {%- endfor %}
+      {%- endif %}
+      <div class="publication-venue">{{ card.venue }}</div>
+      {%- if card.videos %}
+      {%- comment -%}
+      Bracketed like the paper links, because they are the same kind of thing:
+      the artefact behind the entry. They open a single shared player rather
+      than six <video> elements, none of which would ever be played at once.
+      {%- endcomment -%}
+      <div class="publication-link publication-videos">
+        <span class="media-label">Demos:</span>
+        {%- for v in card.videos %}
+        [<button class="media-link" type="button" data-video="{{ v.src | relative_url }}"
+                 data-title="{{ v.title | escape }}" data-ratio="{{ v.ratio }}">{{ v.label }}</button>]
+        {%- endfor %}
+      </div>
+      {%- endif %}
       {%- if card.links %}
       <div class="publication-link">
         {%- for l in card.links %}
         [<a {% if l.download %}download {% endif %}href="{{ l.url | relative_url }}" target="_blank">{{ l.label }}</a>]
         {%- endfor %}
       </div>
+      {%- endif %}
+
+      {%- if card.summary %}
+      {%- comment -%}
+      A real <details>: the pill is its <summary> element, so the disclosure works with
+      the keyboard and without JavaScript. site.js only forwards a click on the
+      rest of the tile to the same toggle, which is what makes the whole card
+      feel live. No standing "Summary" row -- five of those under five cards is
+      five lines of the same word, and the pill is out of flow, so it costs no
+      layout at rest.
+      {%- endcomment -%}
+      <details class="card-summary">
+        <summary class="card-open" aria-label="Insight into {{ card.title | strip_html }}"></summary>
+        <p>{{ card.summary }}</p>
+      </details>
       {%- endif %}
     </div>
   </li>

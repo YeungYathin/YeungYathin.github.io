@@ -1,15 +1,29 @@
 # Identity and contact details shown in the sidebar.
 
-avatar: assets/img/yixuan.jpeg
+# The portrait that sits at the right of the home-page masthead. Shown at its
+# natural ratio -- an object-fit crop of a standing shot loses the person.
+portrait: assets/img/yixuan-portrait.jpg
+portrait_alt: "Yixuan Yang standing on a ridge in Death Valley, holding a camera"
+
+# The round thumbnail. Now used only where the masthead is absent: subpages
+# and the narrow layout.
+avatar: assets/img/yixuan-avatar.jpg
 avatar_alt: "Yixuan Yang"
+
 name: Yixuan Yang
 name_cn: 杨一轩
-# Kept short on purpose. Once subpages exist the sidebar is the only thing
-# naming him, so the line has to stay, but the department spelled out wrapped
-# to two lines and repeated what About Me says a column away.
-role: |
-  Ph.D. Student in ECE<br />
+
+# Masthead line, and the only place the department gets its full name.
+# The sidebar carries no name or role at all: see _includes/sidebar.html.
+role_full: |
+  Ph.D. Student in Electrical &amp; Computer Engineering<br />
   <span class="affil">Duke University</span>
+
+# Sidebar contact block, set in mono. Order is outward-in: institution, then
+# city, then the address that actually reaches him.
+address:
+  - Duke University
+  - Durham, NC, United States
 
 # Institutional address only. The gmail one lives on the CV.
 emails:

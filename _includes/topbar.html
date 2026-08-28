@@ -1,19 +1,61 @@
 {%- comment -%}
-Page-level navigation only. Section anchors live in the sidebar.
+Page-level navigation, site search, theme switch. Section anchors live in the
+sidebar.
 
 Sits on the page ground under a hairline rather than in a filled colour band:
 a navy bar is what the reference site uses, and copying it would make the two
 read as siblings.
+
+The two icons are inline SVG, not Font Awesome. The icon fonts load deferred
+(media="print" then onload), so a glyph in the toggle would arrive after first
+paint and pop -- on the one control whose whole job is to look settled.
 {%- endcomment -%}
 <header class="topbar">
   <div class="topbar-inner">
     <a class="wordmark" href="{{ '/' | relative_url }}">Yixuan Yang</a>
-    <nav aria-label="Pages">
-      <ul>
-        {%- for p in site.data.pages %}
-        <li><a href="{{ p.url | relative_url }}"{% if p.external %} target="_blank" rel="noopener"{% endif %}>{{ p.label }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
+
+    {%- comment -%}
+    Everything else clusters at the right: page links first, then the two
+    controls. Search used to sit between the links and the toggle, which split
+    the navigation across a widget.
+    {%- endcomment -%}
+    <div class="topbar-tools">
+      <nav aria-label="Pages">
+        <ul>
+          {%- for p in site.data.pages %}
+          <li><a href="{{ p.url | relative_url }}"{% if p.external %} target="_blank" rel="noopener"{% endif %}{% if page.url == p.url %} aria-current="page"{% endif %}>{{ p.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <div class="search">
+        <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+        </svg>
+        <input class="search-input" id="site-search" type="search" placeholder="Search"
+               aria-label="Search this site" autocomplete="off" spellcheck="false"
+               role="combobox" aria-expanded="false" aria-controls="search-results"
+               data-index="{{ '/search.json' | relative_url }}" />
+        <kbd class="search-hint" aria-hidden="true">/</kbd>
+        <ul class="search-results" id="search-results" role="listbox" hidden></ul>
+      </div>
+
+      <button class="theme-toggle" type="button" id="theme-toggle"
+              aria-label="Switch between light and dark theme">
+        {%- comment -%}
+        One fixed mark, half sun and half moon, rather than a glyph that swaps
+        with the theme: a control whose face changes reads as a status light,
+        and readers then have to work out whether it shows the state they are
+        in or the state they would get. This just says "theme".
+        {%- endcomment -%}
+        <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true">
+          <path d="M12 6.6a5.4 5.4 0 0 0 0 10.8z" fill="currentColor" />
+          <circle cx="12" cy="12" r="5.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+          <path d="M2.6 12h2M19.4 12h2M12 2.6v2M12 19.4v2M5.35 5.35l1.42 1.42M17.23 17.23l1.42 1.42M5.35 18.65l1.42-1.42M17.23 6.77l1.42-1.42"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
   </div>
 </header>

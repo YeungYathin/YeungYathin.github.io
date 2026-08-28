@@ -1,5 +1,12 @@
+{%- comment -%}
+Heading level is a page decision, not a section one. On the home page this is one
+section among several under the masthead h1, so it is an h2; on /service/ it is
+the entire page and must be the h1, or the document has no top-level heading at
+all. Default 2, overridden in the page's front matter.
+{%- endcomment -%}
+{%- assign hl = page.heading_level | default: 2 %}
 <section class="section-block teaching" id="reviewer">
-  <h2>Academic Service</h2>
+  <h{{ hl }}>Academic Service</h{{ hl }}>
   <ul>
     {%- for s in site.data.service %}
     <li>{{ s }}</li>

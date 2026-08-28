@@ -1,8 +1,9 @@
-# Top-bar links. Page-to-page only, so this stays short until the split adds
-# /service/ and the rest.
+# Top-bar links. Page-to-page only; section anchors live in the sidebar.
 
 - label: Home
   url: /
+- label: Service
+  url: /service/
 - label: CV
   url: /assets/docs/Yixuan_Yang_CV.pdf
   external: true

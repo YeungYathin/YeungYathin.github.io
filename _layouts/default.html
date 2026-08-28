@@ -15,6 +15,16 @@
       </main>
     </div>
 
+    <!-- One shared player. Six <video> elements would each open a connection
+         for metadata, to show one clip at a time; this one gets its source at
+         click and gives it back on close. -->
+    <dialog class="video-dialog" id="video-dialog" tabindex="-1" autofocus
+            aria-labelledby="video-dialog-title">
+      <form method="dialog"><button class="dialog-close" aria-label="Close">&times;</button></form>
+      <h3 class="video-dialog-title" id="video-dialog-title"></h3>
+      <video controls playsinline preload="none"></video>
+    </dialog>
+
 {% include footer.html %}
   </body>
 </html>

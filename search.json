@@ -1,0 +1,55 @@
+---
+layout: null
+---
+{%- comment -%}
+The search index, built at deploy time from the same _data files the page
+renders from. No plugin: GitHub Pages runs Jekyll in safe mode, so anything
+that needs a gem is out. jsonify does the escaping; strip_html means the index
+holds what a reader sees, not the markup around it.
+
+Fields are one letter because this file ships to every visitor who opens the
+box, and the names repeat once per entry.
+  t title   s section   u url   b body
+{%- endcomment -%}
+{%- capture bio %}{% include section-biography.html %}{% endcapture -%}
+[
+{
+"t": "About Me",
+"s": "Bio",
+"u": {{ "/#biography" | relative_url | jsonify }},
+"b": {{ bio | strip_html | normalize_whitespace | jsonify }}
+}
+{%- for n in site.data.news %},
+{
+"t": {{ n.body | strip_html | normalize_whitespace | truncate: 90 | jsonify }},
+"s": {{ n.label | append: " · News" | jsonify }},
+"u": {{ "/#news" | relative_url | jsonify }},
+"b": {{ n.body | strip_html | normalize_whitespace | jsonify }}
+}
+{%- endfor %}
+{%- assign cards = site.data.publications | concat: site.data.projects %}
+{%- for c in cards %},
+{
+"t": {{ c.title | strip_html | jsonify }},
+"s": "Research",
+"u": {{ "/#" | append: c.slug | relative_url | jsonify }},
+"b": {{ c.authors | append: " " | append: c.venue | append: " " | append: c.summary | strip_html | normalize_whitespace | jsonify }}
+}
+{%- endfor %}
+{%- for s in site.data.service %},
+{
+"t": {{ s | strip_html | normalize_whitespace | truncate: 90 | jsonify }},
+"s": "Academic Service",
+"u": {{ "/service/#reviewer" | relative_url | jsonify }},
+"b": {{ s | strip_html | normalize_whitespace | jsonify }}
+}
+{%- endfor %}
+{%- for i in site.data.profile.interests %},
+{
+"t": {{ i | jsonify }},
+"s": "Research interest",
+"u": {{ "/#biography" | relative_url | jsonify }},
+"b": {{ i | jsonify }}
+}
+{%- endfor %}
+]

@@ -1,0 +1,20 @@
+{%- comment -%}
+Home-page masthead. The name lives here rather than in the sidebar, at the size
+a name deserves and as the first thing on the page.
+
+The sidebar carries no name on any page, so nothing here is conditional. An
+earlier version had the rail show the name only where this include was absent,
+which made the sidebar a different shape on the home page than on /service/.
+{%- endcomment -%}
+<header class="masthead">
+  <div class="masthead-text">
+    <h1 class="masthead-name">{{ site.data.profile.name }}</h1>
+    <p class="masthead-role">{{ site.data.profile.role_full }}</p>
+  </div>
+
+  <figure class="masthead-portrait">
+    <img src="{{ site.data.profile.portrait | relative_url }}"
+         alt="{{ site.data.profile.portrait_alt }}"
+         width="961" height="1000" />
+  </figure>
+</header>

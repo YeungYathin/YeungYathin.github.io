@@ -1,13 +1,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
 
-    <title>Yixuan Yang | 杨一轩</title>
-    <link rel="canonical" href="https://yixuanyang.com/" />
+    <title>{% if page.title %}{{ page.title }} · {% endif %}Yixuan Yang | 杨一轩</title>
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
     <meta name="author" content="Yixuan Yang" />
     <meta
       name="description"
-      content="Yixuan Yang is a Ph.D. student in Electrical and Computer Engineering at Duke University, working on world models, self-supervised representation learning, and foundation models for embodied and clinical domains."
+      content="{% if page.description %}{{ page.description | strip_newlines | strip }}{% else %}Yixuan Yang is a Ph.D. student in Electrical and Computer Engineering at Duke University, working on world models, self-supervised representation learning, and foundation models for embodied and clinical domains.{% endif %}"
     />
     <meta
       name="keywords"
@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
 
     <!-- Icon fonts, deferred: they decorate, they do not lay out. -->
@@ -36,6 +36,15 @@
       href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
       media="print" onload="this.media='all'"
     />
+
+    <!-- Applies the stored theme before the stylesheet paints. Inline and
+         synchronous on purpose: a deferred script here is a white flash. -->
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
 
     <link rel="stylesheet" href="{{ "/css/yixuan.css" | relative_url }}" />
 

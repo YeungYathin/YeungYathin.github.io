@@ -2,11 +2,11 @@
 # page-to-page links instead. Anchors keep their historical ids: #publications
 # and #reviewer are the URLs that already exist in the world.
 
-- label: Bio
+# Label matches the section heading exactly. The anchor stays #biography:
+# that URL is already in the world.
+- label: About Me
   anchor: biography
 - label: News
   anchor: news
 - label: Research Experiences
   anchor: publications
-- label: Academic Service
-  anchor: reviewer
