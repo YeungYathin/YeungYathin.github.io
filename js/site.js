@@ -65,7 +65,7 @@
     /* setTimeout, not setInterval: a frame holds for as long as it needs. The
        knob clip is seven seconds and has to finish turning; a still needs four.
        A fixed interval either cut the clip off or left the stills up too long. */
-    var STILL = 2600;
+    var STILL = 1400;
     function dwell(f) {
       return f.tagName === "VIDEO" ? (parseInt(f.dataset.dwell, 10) || 4000) : STILL;
     }

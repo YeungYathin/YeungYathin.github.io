@@ -14,3 +14,8 @@ vendor/
 
 # Camera and capture originals: kept on disk, never committed or served
 media-src/
+
+# The Clin-JEPA NeurIPS rebuttal: kept on disk as reference, never committed.
+# It is the rebuttal for a submission still under review and carries reviewer
+# exchanges and unpublished results; this repository is public.
+assets/papers/clin-jepa-neurips-2026-rebuttal.md

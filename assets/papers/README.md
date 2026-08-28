@@ -22,6 +22,12 @@ is the whole distinction between the two directories.
 `unitree_rl_gym-main.zip` is a code drop kept for reference. It is gitignored
 (`*.zip`) and has never been in the repository.
 
+`clin-jepa-neurips-2026-rebuttal.md` is gitignored by name. It is the rebuttal
+for a submission still under review, carrying reviewer exchanges and results
+that are not published anywhere, and **this repository is public** -- being
+excluded from the Jekyll build keeps it off the website but does nothing about
+the repository itself. Keep it out of commits.
+
 Names are `<short-title>-<venue>-<year>.pdf`. The previous names were hand-made
 and one of them actively misled: `GasHunter-Poster.pdf` is the HotMobile paper
 titled *Olfactory Sensing in Turbulent Airflow via Collaborative Robots*.

@@ -721,7 +721,7 @@ h1, h2, h3 {
   height: 100%;
   object-fit: contain;
   opacity: 0;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.45s ease;
 }
 .slideshow img.is-active,
 .slideshow video.is-active { opacity: 1; }
@@ -910,16 +910,6 @@ h1, h2, h3 {
 .contact { margin: var(--s-4) 0 var(--s-2); }
   .social { margin-bottom: var(--s-3); }
 
-  /* Portrait first, then the name: on a phone the photograph is the faster
-     identifier, and a 3.4rem name above the fold leaves room for nothing else. */
-  .masthead {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: var(--s-4);
-    padding-bottom: var(--s-5);
-    margin-bottom: var(--s-6);
-  }
-  .masthead-portrait img { width: 140px; }
   .masthead-role { font-size: var(--text-base); }
 
   /* One token, so the grid track and the image can never disagree. */
@@ -951,16 +941,34 @@ h1, h2, h3 {
    with the search field collapsed to its own icon until it is touched. */
 
 @media (max-width: 700px) {
-  .page { flex-direction: column; gap: var(--s-6); }
-  .content { order: 1; }
-  .sidebar { order: 2; }
+  :root { --topbar-h: 63px; }
+  .page { flex-direction: column; gap: var(--s-5); }
 
-  /* The masthead portrait is right there; the rail's avatar would be the same
-     person twice, and the section links would sit below the sections. */
-  .sidebar { border-top: 1px solid var(--rule); border-bottom: 0; padding: var(--s-5) 0 0; }
-  .sidebar-head { display: none; }
+  /* The rail stays first, so the email is on the opening screen rather than a
+     full scroll away. What made it unusable before was its size, not its
+     position: 329px of avatar, address, icons and section links. Laid out as a
+     row it costs about a third of that, and the section links go, being links
+     to sections that sit below them.
+
+     The masthead portrait stands down here. The round avatar is the better
+     identifier at this width, and showing both is the same person twice. */
+  .sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+    padding-bottom: var(--s-5);
+    border-bottom: 1px solid var(--rule);
+  }
+  .sidebar-head { flex: 0 0 auto; margin: 0; }
+  .sidebar figure { margin: 0; }
+  .sidebar figure img { width: 76px; height: 76px; }
+  .contact { flex: 1 1 auto; margin: 0; line-height: 1.7; }
+  .social { flex: 1 0 100%; margin: 0; gap: var(--s-4); }
   .sidebar nav { display: none; }
-  .contact { margin: 0 0 var(--s-4); }
+
+  .masthead-portrait { display: none; }
+  .masthead { flex-direction: column; align-items: flex-start; gap: 0; margin-bottom: var(--s-6); }
 
   .topbar-inner {
     flex-direction: row;
@@ -991,7 +999,18 @@ h1, h2, h3 {
   .search-hint { display: none; }
   .search + .theme-toggle { margin-left: 0; }
   .theme-toggle { width: 34px; height: 34px; }
-  .search-results { right: 0; width: calc(100vw - 2 * var(--s-4)); max-width: none; }
+  /* Fixed to the viewport, not to the field. Anchored to the field at this
+     width a 100vw panel ran off the left edge, the field itself being at the
+     right end of the bar. */
+  .search-results {
+    position: fixed;
+    top: 58px;
+    left: var(--s-3);
+    right: var(--s-3);
+    width: auto;
+    max-width: none;
+    max-height: 60vh;
+  }
 }
 
 /* Very small phones. At 320px the four controls in the bar overflow by 24px,
