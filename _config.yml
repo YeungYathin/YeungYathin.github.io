@@ -1,6 +1,14 @@
 title: "Yixuan Yang | 杨一轩"
 url: "https://yixuanyang.com"
 
+# Pinned, and load-bearing. jekyll-github-metadata derives a baseurl of its own
+# during a production build; every asset on this site goes through relative_url,
+# so a derived baseurl would rewrite every CSS, JS, image, video and PDF path and
+# break the whole deploy. A local `jekyll serve` never shows this, because the
+# development environment skips that override. An empty string is correct for a
+# <user>.github.io repository, which is served from the domain root.
+baseurl: ""
+
 # Files that are part of the repository but not part of the published site.
 exclude:
   - CLAUDE.md
@@ -13,6 +21,9 @@ exclude:
   # Full-text PDFs are kept in the repo as reference material for writing
   # summaries. Nothing links to them, so they are not served.
   - assets/papers
+  # Camera and screen-capture originals. Gigabytes of them; assets/ holds the
+  # web derivatives. Also in .gitignore.
+  - media-src
 
 # Leave markdown alone; every page here is hand-written HTML for now.
 markdown: kramdown
